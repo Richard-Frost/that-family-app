@@ -1,0 +1,37 @@
+<%= form_for(@family) do |f| %>
+  <%= f.label :family_title, "Add a fun Family Name" %></br>
+  <%= f.text_field :family_title %></br>
+  <%= f.label :zipcode %> </br>
+  <%= f.text_field :zipcode %></br>
+
+  <%= f.fields_for :users, @user do |user| %>
+    <%= user.label :first_name %></br>
+    <%= user.text_field :first_name %></br>
+    <%= user.label :last_name %></br>
+    <%= user.text_field :last_name %></br>
+    <%= user.label :title, 'Relationship to the child:' %></br>
+    <%= user.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle'] %></br>
+
+    <%= user.label :email, "Email:" %></br>
+    <%= user.text_field :email %><br>
+ 
+    <%= user.label :password, "Password:"  %></br>
+    <%= user.password_field :password%><br>
+   <%end%>
+
+  <%= f.fields_for :children, @child do |child| %>
+  	<%= child.label :first_name %></br>
+  	<%= child.text_field :first_name %></br>
+  	<%= child.label :last_name %></br>
+  	<%= child.text_field :last_name %></br>
+  	<%= child.label :gender %></br>
+  	<%= child.text_field :gender %></br>
+  	<%= child.label :age %></br>
+  	<%= child.text_field :age %></br>
+  <%end%>
+  <%= f.submit %>
+<%end%>
+
+<%# form to create a new account %>
+<%# a new user, family and child is created %>
+<%# accepts_nested_attributes_for must beon the family model %> 

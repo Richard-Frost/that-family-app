@@ -1,0 +1,9 @@
+<h1> <%= @playdate.playdate_title %> </h1>
+<p> When: <%= @playdate.datetime.strftime("%b %e, %l:%M %p")%> </p>
+<p> Created by <%= @originator.first_name %> </p>
+
+<p> Description: <%= @playdate.description %> </p>
+<p> Participants: </p>
+<% @playdate.children.each do |child| %>
+  </p> <%= link_to child.first_name, child_path(child) %> </p>
+<%end%>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ThatFamilyApp</title>
+    <title>AutumnsPlayDate2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,43 @@
   </head>
 
   <body>
+   <div class="background">
+   <div class="container">
+      <!---bootstrap navbar -->
+  
+  <nav class="navbar sticky-top navbar-light bg-light">
+  <a class="navbar-brand" href="#">Autumn's Play Date</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<% if logged_in? %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home  <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/playdates">Playdate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/settings">Account Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/requests">Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/families">Families</a>
+      </li>
+    </ul>
+    
+  </div>
+<% end %>
+</nav>
+
+<!-- bootstrap navbar end --> 
+<div class="container-fluid">
     <%= yield %>
+</div>
+</div>
   </body>
 </html>

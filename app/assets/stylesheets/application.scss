@@ -10,6 +10,49 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+*= require flatpickr
  */
+
+@import "bootstrap";
+
+.navbar {
+    background-color: #9be881 !important;
+    border-color: white !important;
+}
+.navbar-brand {
+    color: #00a18a !important;
+}
+
+
+
+.nav-link {
+  color: white !important;
+}
+
+.container {
+    width: 100%;
+    white-space: nowrap;
+}
+
+p {
+    margin: 1;
+    padding: 1;
+}
+
+@media (min-width: 992px) { 
+
+.container {
+  width: 50%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: white;
+}
+
+.background {
+	background-color: #D1FED1;
+	min-height: 100vh;
+    height: 100%;
+}
+
+
+}
