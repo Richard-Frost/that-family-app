@@ -8,7 +8,6 @@ class PlaydatesController < ApplicationController
   end
 
   def create 
-  	binding.pry
     @playdate = Playdate.new(playdate_params)
     @playdate.save
     redirect_to playdate_path(@playdate)

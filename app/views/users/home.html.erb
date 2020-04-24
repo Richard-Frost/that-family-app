@@ -3,6 +3,9 @@
 <h1>My Children</h1>
 
 <% my_children.each do |child| %>
+
+<div class="content">
+
 <B>name: <%= link_to child.first_name, child_path(child.id) %></B>
 <p> age: <%= child.age %></p>
  
@@ -19,6 +22,7 @@
   <%end%> 
   <br>
 <%end%>
+</div>
 
   <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
     <input type=submit value='logout'>
