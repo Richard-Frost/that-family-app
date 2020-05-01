@@ -1,14 +1,19 @@
-<p> <%= current_user.first_name %> <%= current_user.last_name %></p>
+<div class="content">
+  <p> <%= current_user.first_name %> <%= current_user.last_name %></p>
+</div>
 
-<h1>My Children</h1>
+
+<div class="content">
+  <div class="container-fluid">
+
 
 <% my_children.each do |child| %>
 
-<div class="content">
+  <h4>My Children</h4>
 
-<B>name: <%= link_to child.first_name, child_path(child.id) %></B>
-<p> age: <%= child.age %></p>
- 
+  <B>name: <%= link_to child.first_name, child_path(child.id) %></B>
+  <p> age: <%= child.age %></p>
+
 
   <% if child.upcoming_playdates.any? %>
 
@@ -17,13 +22,18 @@
       <p> <%= link_to playdate.playdate_title, playdate_path(playdate) %> </p>
   <%end%>
 
-  <% else %>
-      <small> <%=child.first_name%> does not have any play dates scheduled</small>
+  <%else%>
+      <small><%=child.first_name%> does not have any play dates scheduled</small>
   <%end%> 
   <br>
+
 <%end%>
+</div>
+  </div>
 </div>
 
   <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
     <input type=submit value='logout'>
   <%end%>
+</div>
+

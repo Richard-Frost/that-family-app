@@ -15,6 +15,7 @@
 
 @import "bootstrap";
 
+
 .content {
 	background-color: white;
   float: none; 
@@ -67,6 +68,38 @@ p {
 
 b {
 	color :#0FE1F5;
+}
+
+.small-left{
+  font-size: 60%;
+}
+.comment {
+  line-height: 85%;
+}
+
+.comment2 {
+  background-color: #e6ffe6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  }
+
+.comment a {
+  color: green;
+}
+
+.participants {
+  background-color: #ccffff;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 20%;
+  text-align: center;
+}
+
+.participants a {
+color: purple;
+  
 }
 
 @media (min-width: 992px) { 

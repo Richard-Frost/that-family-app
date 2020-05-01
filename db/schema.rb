@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_182354) do
+ActiveRecord::Schema.define(version: 2020_04_24_202747) do
 
   create_table "children", force: :cascade do |t|
     t.string "first_name"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 2020_04_21_182354) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "family_connections", force: :cascade do |t|
+    t.integer "family_id"
+    t.integer "famconnect_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "participants", force: :cascade do |t|
     t.integer "child_id"
     t.integer "playdate_id"
@@ -51,6 +58,13 @@ ActiveRecord::Schema.define(version: 2020_04_21_182354) do
     t.datetime "datetime"
     t.integer "originator"
     t.integer "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "family_id"
+    t.integer "famconnect_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

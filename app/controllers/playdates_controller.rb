@@ -34,12 +34,24 @@ class PlaydatesController < ApplicationController
     redirect_to playdate_path(@playdate.id)
   end
 
+  def join
+   add_participants(params)
+   redirect_to playdates_path
+  end
+
 
   private
 
   def playdate_params
     params.require(:playdate).permit(:playdate_title, :datetime, :location, :description, :originator, child_ids:[])
   end
+
+   def add_participants(params)
+   	
+   	params[:playdate][:child_ids].each do |child_id|
+   		Participant.create(child_id: child_id, playdate_id: params[:playdate][:playdate_id]) if !child_id.empty?
+   	end
+   end
 
 
 end

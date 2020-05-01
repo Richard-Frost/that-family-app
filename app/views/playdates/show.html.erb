@@ -1,27 +1,39 @@
 <div class="content">
-<div class="title">
-<h2> <%= @playdate.playdate_title %> </h2>
-</div>
+	
+	<div class="title">
+		<h2> <%= @playdate.playdate_title %> </h2>
+	</div>
+
 	<div class ="container-fluid">
 
-<h4> Details: </h4>
-	<div class ="container-fluid">
-<p> When: <%= @playdate.datetime.strftime("%b %e, %l:%M %p")%> </p>
+	<h4> Details: </h4>
+		<div class ="container-fluid"> 
 
-<p> Description: <%= @playdate.description %> </p>
+		<p> When: <%= @playdate.datetime.strftime("%b %e, %l:%M %p")%> </p>
+		<p> Description: <%= @playdate.description %> </p>
 
+	<% unless everyone_attending? %>
 
+		<%= form_for :playdate, :url => url_for(:controller => 'playdates', :action => 'join') do |f| %>
+			<%= f.hidden_field :playdate_id, value: @playdate.id %>
+		  <%= f.label :child_ids, "Select a Child:  " %>
+		  <%= f.collection_check_boxes :child_ids, @family.children, :id, :first_name  %></br>
+		<%= f.submit %>
+		<%end%>
+	<%end%>
 
-<p> Participants: </p>
+	<hr/>
 
-<hr/>
+	<p> Participants: </p>
 
 	<% @playdate.children.each do |child| %>
-  	</p> <%= link_to child.first_name, child_path(child) %> </p>
+  	<div class="participants"><p> <%= link_to child.first_name, child_path(child) %> </p></div>
 	<%end%>
   </div>
 </div>
 
+
+<!-- leave a comment -->
 
 <div class="content">
 	<div class ="container-fluid">
@@ -35,18 +47,41 @@
 	</div>
 </div>
 <br>
-<div class="container-fluid"
-<div class="comment">
-  <% @playdate.comments.each do |comment| %>
-    <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
-	<%end%>
-</div>
-</div>
 
-<div class="content right">
-	<% if @originator.id == current_user.id %>
-    <%= link_to "edit play date", edit_playdate_path(@playdate.id), class: 'small' %>
-	<%else%>
-This play date was created by <%=@originator.first_name%>
-<%end%>
-</div>
+
+<!-- comments -->
+
+	<div class="container-fluid">
+		<div class="comment">
+
+  	<% @playdate.comments.each do |comment| %>
+
+  	<div class="comment2">
+    	<b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
+    </div>
+		<div>
+	
+    	<% if comment.user_id == current_user.id %>
+
+    		<div class="comment">
+      	<%= link_to "Edit", edit_playdate_comment_path(@playdate.id, comment.id), class: 'small-left' %>
+      	<%= link_to "Delete", playdate_comment_path(@playdate.id, comment.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %>
+    		</div>
+    	
+    	<%end%>
+
+  		</div>
+  	<%end%>
+	</div>
+
+
+<!-- play date created by.....  -->
+
+	<div class="content right">
+		<% if @originator.id == current_user.id %>
+	    <%= link_to "edit play date", edit_playdate_path(@playdate.id), class: 'small' %>
+		<%else%>
+	<br>
+		<small> This play date was created by <%=@originator.first_name%> </small>
+	<%end%>
+	</div>

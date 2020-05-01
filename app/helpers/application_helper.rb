@@ -7,4 +7,6 @@ module ApplicationHelper
   def my_children
     current_user.family.children
   end
+
 end
+

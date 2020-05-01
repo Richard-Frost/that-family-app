@@ -1,3 +1,5 @@
 <% @families.each do |family| %>
-	<p><%= family.family_title %></p>
+	<p><%= link_to family.family_title, family_path(family) %></p>
 <%end%>
+
+

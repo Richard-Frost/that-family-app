@@ -1,0 +1,2 @@
+class FamilyConnectionsController < ApplicationController
+end

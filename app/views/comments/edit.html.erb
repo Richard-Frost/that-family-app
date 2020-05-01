@@ -1,0 +1,6 @@
+<%= form_for (@comment) do |f| %>
+	<%= f.label :comment %></br>
+	<%= f.text_field :comment %></br>
+	<%= hidden_field_tag "playdate_id", @playdate.id %>
+	<%= f.submit %>
+ <%end%>

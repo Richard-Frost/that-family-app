@@ -1,8 +1,8 @@
 class FamiliesController < ApplicationController
  
- def new
-	@family = Family.new
-	@family.children.build
+  def new
+    @family = Family.new
+    @family.children.build
     @family.users.build
     @titles = ["Parent", "Grandparent", "Babysitter", "Nanny", "Other"]
   end
@@ -17,6 +17,10 @@ class FamiliesController < ApplicationController
   	@families = Family.all
   end 
 
+  def show
+    @family = Family.find(params[:id])
+    @request = Request.new
+  end
 
   private
 

@@ -1,7 +1,16 @@
+<div class="container">
+<div class="content">
+ <div class="container-fluid">
+
 <%= form_tag ({controller: 'sessions', action: 'create',method: 'post'}) do %>
-  <%= label_tag('[email]', "Email") %>
-  <%= text_field_tag('user[email]') %>
-  <%= label_tag('user[user[password]]', "Password") %>
-  <%= password_field_tag('user[password]')%>
-  <input type=submit value='Sign In'>
+  <%= label_tag('[email]', "Email")%></br>
+  <%= text_field_tag('user[email]')%></br>
+  <%= label_tag('user[user[password]]', "Password") %></br>
+  <%= password_field_tag('user[password]')%></br>
+  <br>
+  <input type=submit value='Sign In' >
 <%end%>
+
+</div>
+</div>
+</div>

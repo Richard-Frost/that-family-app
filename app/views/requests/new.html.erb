@@ -1,0 +1,6 @@
+<%= form_for(@request) do |f| %>
+      <%= f.label :message, "Include a message with your request (optional)" %>
+      <%= f.hidden_field :famconnect_id, value: params[:id], class: 'form-control'  %>
+      <%= f.hidden_field :family_id, value: current_user.family.id %>
+    <%= f.submit%>
+<%end%>

@@ -10,5 +10,4 @@ class Playdate < ApplicationRecord
     self.originator = session[:family_id]
   end
 
-
 end
