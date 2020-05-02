@@ -6,7 +6,6 @@
 <div class="content">
   <div class="container-fluid">
 
-
 <% my_children.each do |child| %>
 
   <h4>My Children</h4>
@@ -25,15 +24,46 @@
   <%else%>
       <small><%=child.first_name%> does not have any play dates scheduled</small>
   <%end%> 
+
   <br>
 
-<%end%>
-</div>
+
+  <div class="content">
+    <div class="content2">
+
+    <h6 class="blue"> Update status: Is <%= child.first_name.capitalize %> bored today? </h6>
+
+    <%= form_for(child) do |f| %>
+      <%if child.bored%>
+        <%= f.hidden_field :bored, value: false %>
+        <%= f.submit "turn bored alert off" %>
+      <% else %>
+        <%= f.submit "turn bored alert on" %>
+        <%= f.hidden_field :bored, value: true %>
+      <%end%>
+    <%end%>
+
+    </div>
   </div>
+  <%end%>
+<br>
+<br>
+<br>
+
+<h6> Kids that are Bored! </h6>
+
+  <% Child.i_am_bored.each do |child| %>
+    <%= link_to child.first_name, child_path(child.id) %></br>
+  <%end%>
+  </div>
+ </div>
 </div>
+
 
   <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
     <input type=submit value='logout'>
   <%end%>
 </div>
+
+
 
