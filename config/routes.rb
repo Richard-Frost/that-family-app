@@ -6,17 +6,17 @@ Rails.application.routes.draw do
   resources :children
   resources :families
   resources :users
-  root to: 'static#welcome'
+  resources :password_resets
   resources :sessions
 
-  get '/signup' => 'families#new'
+  #get '/signup' => 'families#new'
   get '/login' => 'sessions#new'
-  get '/logout' => 'sessions#destroy'
+  post '/logout' => 'sessions#destroy' 
   get '/home' => 'users#home' 
   post 'playdates/join' => 'playdates#join'
-
+  root to: 'sessions#welcome'
   resources :playdates do
-  	resources :comments
+  resources :comments
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

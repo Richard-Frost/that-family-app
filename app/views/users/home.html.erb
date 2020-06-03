@@ -1,10 +1,8 @@
-<div class="content">
-  <p> <%= current_user.first_name %> <%= current_user.last_name %></p>
-</div>
 
 
-<div class="content">
-  <div class="container-fluid">
+
+
+
 
 <% my_children.each do |child| %>
 
@@ -27,10 +25,6 @@
 
   <br>
 
-
-  <div class="content">
-    <div class="content2">
-
     <h6 class="blue"> Update status: Is <%= child.first_name.capitalize %> bored today? </h6>
 
     <%= form_for(child) do |f| %>
@@ -42,9 +36,6 @@
         <%= f.hidden_field :bored, value: true %>
       <%end%>
     <%end%>
-
-    </div>
-  </div>
   <%end%>
 <br>
 <br>

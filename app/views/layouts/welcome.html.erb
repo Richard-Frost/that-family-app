@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AutumnsPlayDate2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <%= content_tag :body, class: "#{controller_name}-#{action_name}" do %>
+  <!-- Your layout content, or everything that should be in the body tag goes here -->
+  <% end %>
+
+  
+
+    <%= yield %>
+
+ 
+
+
+
+  </body>
+</html>

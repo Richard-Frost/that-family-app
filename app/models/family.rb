@@ -1,5 +1,7 @@
 class Family < ApplicationRecord
 
+	has_secure_password
+
 	has_many :children
 	has_many :users
 
@@ -11,3 +13,33 @@ class Family < ApplicationRecord
 	accepts_nested_attributes_for :users
   accepts_nested_attributes_for :children
 end
+
+
+# Family has_many :children
+# Child belongs_to :family
+
+# Family has_many :users
+# User belongs_to :family
+
+# Family has_many :requests
+# Request belongs_to :family
+
+# Family has_many :family_connections
+# FamilyConnection belongs_to :family
+
+# Family has_many :famconnects, through: :family_connections
+# FamilyConnection belongs_to :famconnect, class_name: "Family"
+
+# Child has_many :participants
+# Participant belongs_to :child
+# Playdates has_many :participants
+# Participant	belongs_to :playdate 
+
+# Child has_many :playdates, through: :participants
+# Playdates has_many :children, through: :participants
+
+# Playdates has_many :comments
+# User has_many :comments
+
+
+

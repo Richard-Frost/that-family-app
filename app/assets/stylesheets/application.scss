@@ -15,16 +15,44 @@
 
 @import "bootstrap";
 
-
+body {
+  background-color: #f2fcf8;
+}
 .content {
 	background-color: white;
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
   float: none; 
-  padding-top: none;
+  padding-top: 1%;
   padding-bottom: 1%;
+  padding-left: 5%;
   margin-bottom: 1%;
+  margin-top: 25px;
+  margin-left: 300px !important;
+  height: 500px;
+  max-height: 500px;
+  width:900px; /* or whatever width you want. */
+  max-width:900px; /* or whatever width you want. */
+  display: block;
   overflow-x: hidden; 
   -moz-box-shadow: 0 0 10px rgba(0,0,0,.9);
   
+}
+
+
+.sessions-welcome { 
+  background: image_url('background1.jpg') no-repeat center center fixed; 
+  background-size:     cover;                  
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+.sessions-new { 
+  background: image_url('background2.jpg') no-repeat center center fixed; 
+  background-size:     cover;                  
+  background-repeat:   no-repeat;
+  background-position: center center;
 }
 
 .right a { 
@@ -33,10 +61,41 @@
 
 .title {
 	background-color: #e6ffe6;
-	margin-top: 5px;
+	
 	
 }
 
+div.login {
+    display: block;
+    text-align: center;
+}
+
+.fom-label {
+  float: left;
+}
+
+ .login {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 200px;
+}
+
+
+.cntr {
+  margin-left: 0px !important;
+  background-color: white;
+  color: green !important;
+  border-top: 1px solid #FFFFD1 !important;
+  border-bottom: 1px solid #FFFFD1 !important;
+  text-align: center;
+  
+}
+.nav-item button {
+margin-left: 15px;
+background-color: #9be881 !important;
+}
 
 
 hr {
@@ -48,16 +107,58 @@ hr {
     padding: 0;
 }
 
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 190px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #9be881;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white !important;
+  display: block;
+  margin-left: 15px;
+}
+.side-top {
+  padding-top: 50px;
+  
+}
+
+.nav-item {
+  padding-top: 10px;
+  background-color: #9be881;
+  border-bottom: .5px solid #e6ffe6;
+  
+}
+
+.btn-link {
+  color: white !important;
+}
+
+.nb {
+margin-left: 40px;
+}
+
 .navbar {
-	background-color: #9be881 !important;
+	background-color: #6acc49 !important;
 	border-color: white !important;
 }
+
 .navbar-brand {
-	color: #00a18a !important;
+	color: white !important;
 }
 
 .nav-link {
-  color: white !important;
+  color: #FF1493 !important;
 }
 
 p {
@@ -73,6 +174,12 @@ b {
 .small-left{
   font-size: 60%;
 }
+.small {
+  font-size: 80%;
+  color: white;
+  margin-left: 15px; 
+}
+
 .comment {
   line-height: 85%;
 }
@@ -100,6 +207,14 @@ b {
 .participants a {
 color: purple;
   
+}
+.family-title {
+  color: black;
+  text-align: center !important;
+}
+
+.big {
+  font-size: 10vw;
 }
 
 @media (min-width: 992px) { 

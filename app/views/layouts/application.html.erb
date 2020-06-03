@@ -10,18 +10,24 @@
   </head>
 
   <body>
-   <div class="background">
-   <div class="container">
 
       <!---bootstrap navbar -->
-  
+  <% if logged_in? %>
   <nav class="navbar sticky-top navbar-light bg-light">
-  <a class="navbar-brand" href="#">Autumn's Play Date</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-<% if logged_in? %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <a class="navbar-brand"%>Autumn's Play Date</a>
+  <% if logged_in? %>
+  <%end%>
+
+
+  
+</nav>
+ 
+  <nav class="sidenav">
+  <div class="side-top">
+  <div class="nb"> <%= image_tag("family.png") %> </div>
+  <div class="small cntr"> <%= current_user.family.family_title %> </div> 
+
+  <div class="">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/home">Home  <span class="sr-only">(current)</span></a>
@@ -30,24 +36,36 @@
         <a class="nav-link" href="/playdates">Playdate</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/settings">Account Settings</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="/requests">Requests</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/families">Families</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/settings">Settings</a>
+      </li>
+      <li class="nav-item">
+        <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+          <input type=submit value='Logout' class="btn btn-link" )>
+        <%end%>
+      </li>
     </ul>
-    
+  </div>
   </div>
 <% end %>
 </nav>
 
 <!-- bootstrap navbar end --> 
-
+<div class="main">
+  <div class="">
+  <div class="content">
     <%= yield %>
+  </div>
+  </div>
 
 </div>
+
+
+
   </body>
 </html>

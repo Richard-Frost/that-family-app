@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
+
+  skip_before_action :my_children
   
-  def new
+  def welcome
   end
 
   def create 
@@ -9,6 +11,7 @@ class SessionsController < ApplicationController
   	return redirect_to(controller: 'sessions', action: 'new') unless user
   	session[:user_id] = user[:id]
   	@user = user
+    binding.pry
   	redirect_to '/home'
   end
 

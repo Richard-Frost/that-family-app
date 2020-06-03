@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
+
+  layout :resolve_layout
+
+
+  before_action :current_user
+  before_action :my_children
 	helper_method :current_user, :my_family, :logged_in?, :joined?, :my_children, :everyone_attending?
+
 private 
 
   def current_user
@@ -32,5 +39,19 @@ private
     my_children.count == joined?.count
   end
 
+
+layout :resolve_layout
+
+  # ...
+
+  private
+
+  def resolve_layout
+    if !logged_in?
+      "welcome"
+    else
+      "application"
+    end
+  end
  
 end

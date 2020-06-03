@@ -3,7 +3,8 @@
   <%= f.text_field :family_title %></br>
   <%= f.label :zipcode %> </br>
   <%= f.text_field :zipcode %></br>
-
+  <%= f.label :password, " Family Code" %></br>
+  <%= f.password_field :password %></br>
   <%= f.fields_for :users, @user do |user| %>
     <%= user.label :first_name %></br>
     <%= user.text_field :first_name %></br>
@@ -31,7 +32,3 @@
   <%end%>
   <%= f.submit %>
 <%end%>
-
-<%# form to create a new account %>
-<%# a new user, family and child is created %>
-<%# accepts_nested_attributes_for must beon the family model %> 

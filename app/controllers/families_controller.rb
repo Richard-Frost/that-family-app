@@ -1,4 +1,7 @@
 class FamiliesController < ApplicationController
+
+  skip_before_action :my_children, :only => [:new, :create]
+
  
   def new
     @family = Family.new
@@ -9,8 +12,11 @@ class FamiliesController < ApplicationController
 
   def create
   	@family = Family.new(family_params)
+    @family.users.last.parent = true if params[:family][:users_attributes]["0"][:title] == "Parent"
   	@family.save
-  	redirect_to families_path
+    session[:user_id] = @family.users.last.id
+    binding.pry
+  	redirect_to "/home"
   end
 
   def index
@@ -22,10 +28,20 @@ class FamiliesController < ApplicationController
     @request = Request.new
   end
 
+  def edit
+    @family = my_family
+  end
+
   private
 
   def family_params
-    params.require(:family).permit(:email, :password,:name, :zipcode, users_attributes: [:first_name, :last_name, :email,:password, :family_title], children_attributes: [:first_name, :last_name, :age, :gender])
+    params.require(:family).permit(:email, :password, :family_title, :zipcode, users_attributes: [:first_name, :last_name, :email,:password, :title], children_attributes: [:first_name, :last_name, :age, :gender])
+  end
+
+  def parent
+    user = @family.users.last
+    user.parent == true if params[:family][:users_attributes]["0"][:title] == "Parent"
+    user.save
   end
 
  end
