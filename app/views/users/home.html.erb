@@ -1,17 +1,15 @@
-
-
-
-
-
-
 <% my_children.each do |child| %>
 
-  <h4>My Children</h4>
+<div class="child">
+  <div class="name">
+    <h3><%= link_to child.first_name, child_path(child.id) %></h3>
+  </div>
+  <div class="container-fluid">
+  <div class="playdates">
+  <h4> Play Dates </h4>
 
-  <B>name: <%= link_to child.first_name, child_path(child.id) %></B>
-  <p> age: <%= child.age %></p>
 
-
+<div class="dateinfo">
   <% if child.upcoming_playdates.any? %>
 
     <% child.upcoming_playdates.each do |playdate| %>
@@ -22,11 +20,16 @@
   <%else%>
       <small><%=child.first_name%> does not have any play dates scheduled</small>
   <%end%> 
+</div>
+</div>
+
 
   <br>
-
+  <br>
+<div class="pink">
     <h6 class="blue"> Update status: Is <%= child.first_name.capitalize %> bored today? </h6>
 
+  <div class="bored">
     <%= form_for(child) do |f| %>
       <%if child.bored%>
         <%= f.hidden_field :bored, value: false %>
@@ -36,19 +39,28 @@
         <%= f.hidden_field :bored, value: true %>
       <%end%>
     <%end%>
+    </div>
+  </div>
+</div>
+</div>
   <%end%>
-<br>
-<br>
-<br>
 
-<h6> Kids that are Bored! </h6>
+<div class="child">
+  <div class="name">
+    <h3> Kids that are Bored! </h3>
+  </div>
+
+<div class="container-fluid">
 
   <% Child.i_am_bored.each do |child| %>
     <%= link_to child.first_name, child_path(child.id) %></br>
   <%end%>
-  </div>
- </div>
+
 </div>
+</div>
+
+
+
 
 
   <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>

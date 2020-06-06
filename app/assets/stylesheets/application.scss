@@ -40,7 +40,6 @@ body {
   
 }
 
-
 .sessions-welcome { 
   background: image_url('background1.jpg') no-repeat center center fixed; 
   background-size:     cover;                  
@@ -61,25 +60,124 @@ body {
 
 .title {
 	background-color: #e6ffe6;
-	
-	
 }
 
-div.login {
-    display: block;
-    text-align: center;
-}
 
 .fom-label {
   float: left;
 }
 
  .login {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    margin-top: 200px;
+    -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
+    -webkit-box-shadow: 0 0 10px rgba(20,0,4o,.5);
+    box-shadow: 0 0 15px rgba(20,0,40,.5);
+    color: rgb(102,0,102) !important;
+    float: none;
+    padding-top: 15%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    padding-left: 1%;
+    margin: 6% auto;
+    margin-bottom: 100px;
+    max-width: 600px;
+    min-width: 600px;
+    overflow-x: hidden
+}
+
+.signup {
+  -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
+    -webkit-box-shadow: 0 0 10px rgba(20,0,4o,.5);
+    box-shadow: 0 0 15px rgba(20,0,40,.5);
+    color: rgb(102,0,102) !important;
+    background-color: white;
+    float: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    padding-left: 1%;
+    margin: 1% auto;
+    margin-bottom: 5px;
+    max-width: 600px;
+    min-width: 600px;
+    overflow-x: hidden
+}
+
+.child {
+  -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
+    -webkit-box-shadow: 0 0 10px rgba(20,0,4o,.5);
+    box-shadow: 0 0 15px rgba(20,0,40,.5);
+    color: black;
+    background-color: #f2fcf8;
+    float: none;
+    margin: 1% auto;
+    margin-bottom: 5px;
+    height: 400px;
+    max-height: 400px;
+    width:900px; /* or whatever width you want. */
+    max-width:900px; /* or whatever width you want. */
+    border-radius: 10px;
+    overflow-x: hidden;
+}
+
+.child h3 a {
+  margin-left: 10px;
+  color: white !important;
+  text-shadow: 1px 1px rgb(102,0,102);
+  font-size: 50px;
+}
+
+.child h3 {
+  margin-left: 10px;
+  color: white !important;
+  text-shadow: 1px 1px rgb(102,0,102);
+  font-size: 50px;
+}
+.pink {
+  background-color: white;
+  padding: 1%;
+  border: 1px solid #20B2AA;
+  border-radius: 10px;
+}
+
+.playdates { 
+color:  black;
+background-color: #e8fcfc;
+border: 1px solid   #B0E0E6;
+border-radius: 10px;
+overflow: hidden;
+}
+
+.playdates h4 {
+margin-left: 10px;
+}
+
+.dateinfo {
+  background-color: white !important;
+}
+
+.dateinfo p {
+  margin-left: 10px;
+}
+
+
+.bored input {
+  padding-left: 1%;
+  padding-right: 1%;
+  color: #CD5C5C !important;
+  background-color: white;
+  border-color: #CD5C5C;
+  border-radius: 20px;
+  box-shadow: none !important;
+}
+
+.name {
+  background-color: #9be881;
+}
+
+
+.btn-outline-success {
+  color: white !important;
+  background-color: rgba(102,0,102,.8) !important;
 }
 
 
@@ -142,6 +240,8 @@ hr {
 
 .btn-link {
   color: white !important;
+  font-size: 20px !important;
+  padding: 6px 8px 6px 16px;
 }
 
 .nb {

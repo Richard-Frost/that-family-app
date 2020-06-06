@@ -12,6 +12,14 @@ class Family < ApplicationRecord
 
 	accepts_nested_attributes_for :users
   accepts_nested_attributes_for :children
+
+  geocoded_by :zip_code
+  after_validation :geocode
+
+  def zip_code
+    zipcode
+  end
+  
 end
 
 

@@ -1,22 +1,18 @@
 
-<div class="content">
+
 <% @family.children.each do |child| %>
   <b> Child:</b> <%= child.first_name.capitalize %></br>
 <%end%>
-<br>
+
 
 <% @family.users.each do |user| %>
   <b><%= user.title %>:</b> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %></br>
 <%end%>
-</div>
 
+<%= form_for(@request) do |f| %>
+	<%= f.hidden_field :famconnect_id, value: params[:id], class: 'form-control'  %>
+  <%= f.hidden_field :family_id, value: current_user.family.id %>
+  <%= f.submit%>
+<%end%>
 
-<div class="content">
-    <%= form_for(@request) do |f| %>
-      
-      <%= f.hidden_field :famconnect_id, value: params[:id], class: 'form-control'  %>
-      <%= f.hidden_field :family_id, value: current_user.family.id %>
-    <%= f.submit%>
-    <%end%>
-</div>
 

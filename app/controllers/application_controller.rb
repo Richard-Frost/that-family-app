@@ -2,10 +2,9 @@ class ApplicationController < ActionController::Base
 
   layout :resolve_layout
 
-
   before_action :current_user
   before_action :my_children
-	helper_method :current_user, :my_family, :logged_in?, :joined?, :my_children, :everyone_attending?
+	helper_method :current_user, :my_family, :logged_in?, :joined?, :my_children, :everyone_attending?, :playdates_near_me, :families_near_me
 
 private 
 
@@ -38,6 +37,28 @@ private
   def everyone_attending?
     my_children.count == joined?.count
   end
+
+  def playdates_near_me
+    geo = Geocoder.search(current_user.family.zipcode.to_i).first
+    lat = geo.latitude
+    lon = geo.longitude
+    distance = 5
+    center_point = [lat, lon]
+    box = Geocoder::Calculations.bounding_box(center_point, distance)
+    Playdate.within_bounding_box(box)
+  end
+
+  def families_near_me
+    geo = Geocoder.search(current_user.family.zipcode.to_i).first
+    binding.pry
+    lat = geo.latitude
+    lon = geo.longitude
+    distance = 5
+    center_point = [lat, lon]
+    box = Geocoder::Calculations.bounding_box(center_point, distance)
+    Family.within_bounding_box(box)
+  end
+
 
 
 layout :resolve_layout

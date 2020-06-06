@@ -30,6 +30,8 @@ private
     params.require(:comment).permit(:comment, :playdate_id, :id)
   end
 
+end
+
 
 
 

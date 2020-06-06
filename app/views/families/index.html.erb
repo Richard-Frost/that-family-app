@@ -1,5 +1,10 @@
-<% @families.each do |family| %>
-	<p><%= link_to family.family_title, family_path(family) %></p>
-<%end%>
+<h1> Families </h1>
 
 
+
+  <% families_near_me.each do |family| %>
+    <% unless family.id == my_family %>
+    <%= link_to family.family_title, family_path(family.id)%></br>
+    <%end%>
+  <%end%>
+  
