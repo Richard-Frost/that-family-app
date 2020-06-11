@@ -1,0 +1,11 @@
+<div class="child">
+	<div class="color-<%=(1...10).to_a.sample%>">
+		<h3><%= @child.first_name %></h3>
+	</div>
+	<div class="status-color-<%=(1...10).to_a.sample%>">
+		<h3><%=@child.status%></h3>
+	</div>
+	<div class="container-fluid">
+		<b> Bored? </b> <%=@child.bored%>
+	</div>
+</div>

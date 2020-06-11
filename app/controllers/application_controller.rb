@@ -60,7 +60,6 @@ private
   end
 
 
-
 layout :resolve_layout
 
   # ...

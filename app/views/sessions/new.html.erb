@@ -1,16 +1,23 @@
 
 <div class="login">
+	<div class="login-pic">
+		<%= image_tag('background4.jpg') %>
+	</div>
 
-<%= form_tag ({controller: 'sessions', action: 'create',method: 'post'}) do %>
-  <%= label_tag('[email]', "Email")%></br>
-  <%= text_field_tag('user[email]',nil, class: 'form-control')%></br>
+	<div class="login2"
+		<div class="container=fluid">
+		<%= form_tag ({controller: 'sessions', action: 'create',method: 'post'}) do %>
+  		<%= label_tag('[email]', "Email")%></br>
+  		<%= text_field_tag('user[email]',nil, class: 'form-control')%></br>
 
-  <%= label_tag('user[user[password]]', "Password") %></br>
-  <%= password_field_tag('user[password]',nil, class: 'form-control')%></br>
-  <br>
-  <input type=submit value='Sign In' class="btn btn-outline-success" >
-  <a href="<%=new_family_path%>" class="btn btn-outline-success" role="button">Sign Up</a>
-<%end%> 
+  		<%= label_tag('user[user[password]]', "Password") %></br>
+  		<%= password_field_tag('user[password]',nil, class: 'form-control')%></br>
+  		<br>
+  		<input type=submit value='Sign In' class="btn btn-outline-success" >
+  		<a href="<%=new_family_path%>" class="btn btn-outline-success" role="button">Sign Up</a>
+		<%end%> 
+	</div>
+	</div>
 </div>
 
 

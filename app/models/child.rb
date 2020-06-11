@@ -15,3 +15,8 @@ class Child < ApplicationRecord
   end
   
 end
+
+
+#Child belongs_to :family
+#Child has_many :participants
+#Child has_many :playdates, through: :participants

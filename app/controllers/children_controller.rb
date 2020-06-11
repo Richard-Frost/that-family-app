@@ -1,6 +1,15 @@
 class ChildrenController < ApplicationController
+ 
 
-	def edit
+  def new
+    @child = Child.new
+  end
+
+  def create
+    binding.pry
+  end
+
+  def edit
   end
 
   def update
@@ -11,7 +20,7 @@ class ChildrenController < ApplicationController
 
   def show
     @child = Child.find(params[:id])
-    @messages = @child.messages
+    #@messages = @child.messages
   end
 
   def message
@@ -25,7 +34,7 @@ class ChildrenController < ApplicationController
   private
 
   def child_params
-    params.require(:child).permit(:bored)
+    params.require(:child).permit(:bored, :status, :age, :first_name, :last_name)
   end
 
   def message_params

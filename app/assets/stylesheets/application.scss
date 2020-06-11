@@ -48,7 +48,7 @@ body {
 }
 
 .sessions-new { 
-  background: image_url('background2.jpg') no-repeat center center fixed; 
+  background-color: white !important;
   background-size:     cover;                  
   background-repeat:   no-repeat;
   background-position: center center;
@@ -69,20 +69,30 @@ body {
 
  .login {
     -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
-    -webkit-box-shadow: 0 0 10px rgba(20,0,4o,.5);
+    -webkit-box-shadow: 0 0 10px rgba(20,0,40,.5);
     box-shadow: 0 0 15px rgba(20,0,40,.5);
     color: rgb(102,0,102) !important;
     float: none;
-    padding-top: 15%;
-    padding-bottom: 1%;
-    padding-right: 1%;
-    padding-left: 1%;
     margin: 6% auto;
     margin-bottom: 100px;
     max-width: 600px;
     min-width: 600px;
-    overflow-x: hidden
+    overflow-x: hidden;
+    border-radius: 10px;
 }
+
+.login2 {
+  background-color: rgba(52, 209, 0, .9) !important;
+  padding: .5%;
+  border-radius: 10px;    
+}
+
+.login-pic img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
 
 .signup {
   -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
@@ -102,6 +112,32 @@ body {
     overflow-x: hidden
 }
 
+.new-account {
+-moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
+    -webkit-box-shadow: 0 0 10px rgba(20,0,4o,.5);
+    box-shadow: 0 0 15px rgba(20,0,40,.5);
+    color: green;
+    background-color: white;
+    float: none;
+    margin: 1% auto;
+    margin-bottom: 5px;
+    height: 400px auto;
+    min-height: 400px;
+    width:900px; /* or whatever width you want. */
+    max-width:900px; /* or whatever width you want. */
+    border-radius: 10px;
+    overflow-x: hidden;
+    margin-top: 140px; 
+}
+
+.new-account h3 {
+  margin-left: 10px;
+  background-color: rgba(52, 209, 0, .9) !important;
+  color: white !important;
+  text-shadow: 1px 1px rgb(102,0,102);
+  font-size: 50px;
+}
+
 .child {
   -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
     -webkit-box-shadow: 0 0 10px rgba(20,0,4o,.5);
@@ -111,8 +147,8 @@ body {
     float: none;
     margin: 1% auto;
     margin-bottom: 5px;
-    height: 400px;
-    max-height: 400px;
+    height: 400px auto;
+    min-height: 400px;
     width:900px; /* or whatever width you want. */
     max-width:900px; /* or whatever width you want. */
     border-radius: 10px;
@@ -126,17 +162,21 @@ body {
   font-size: 50px;
 }
 
-.child h3 {
-  margin-left: 10px;
-  color: white !important;
-  text-shadow: 1px 1px rgb(102,0,102);
-  font-size: 50px;
-}
-.pink {
+.set-status {
   background-color: white;
-  padding: 1%;
-  border: 1px solid #20B2AA;
+  border: 1px solid #B0E0E6;
   border-radius: 10px;
+  margin-bottom: 10px;
+}
+.update-status {
+  background-color: #FFF0F5 !important;
+}
+
+.inner-status {
+  background-color: #E6E6FA;
+}
+.inner-status p {
+  margin-left: 10px;
 }
 
 .playdates { 
@@ -163,9 +203,9 @@ margin-left: 10px;
 .bored input {
   padding-left: 1%;
   padding-right: 1%;
-  color: #CD5C5C !important;
-  background-color: white;
-  border-color: #CD5C5C;
+  color: black !important;
+  background-color: #E6E6FA;
+  border-color: #B0E0E6;
   border-radius: 20px;
   box-shadow: none !important;
 }
@@ -176,8 +216,10 @@ margin-left: 10px;
 
 
 .btn-outline-success {
-  color: white !important;
-  background-color: rgba(102,0,102,.8) !important;
+
+  color: black !important;
+  background-color: white !important;
+  padding-bottom: 10px;
 }
 
 
@@ -337,4 +379,92 @@ color: purple;
 }
 
 
+.color-1 { 
+background-color: #29C0E4 !important;
+color: black;
+}
+
+.color-2 { 
+background-color: #F0247E !important;
+color: black;
+}
+
+.color-3 { 
+background-color: #F68B21 !important;
+color: black;
+}
+
+.color-4 { 
+background-color: #D696BF !important;
+}
+
+.color-5 {
+  background-color: #29C0E4 !important;
+}
+
+.color-6 {
+  background-color: #0CBA73 !important;
+}
+
+.color-7 {
+  background-color: #F68B21 !important;
+}
+
+.color-8 {
+  background-color: #F8D243 !important;
+}
+
+.color-9 {
+  background-color: #F5321C !important;
+  }
+
+.color-10 {
+  background-color: #EE001A !important;
+}
+
+
+
+
+
+
+
+.status-color-1 h3 { 
+  color: #29C0E4 !important;
+}
+
+.status-color-2 h3 { 
+  color: #F0247E !important;
+}
+
+.status-color-3 h3 { 
+  color: #F68B21 !important;
+}
+
+.status-color-4 h3 { 
+  color: #D696BF !important;
+}
+
+.status-color-5 h3{
+  color: #29C0E4 !important;
+}
+
+.status-color-6 h3 {
+  color: #0CBA73 !important;
+}
+
+.status-color-7 h3 {
+  color: #F68B21 !important;
+}
+
+.status-color-8 h3 {
+  color: #F8D243 !important;
+}
+
+.status-color-9 h3 {
+  color: #F5321C !important;
+}
+
+.status-color-10 h3 {
+  color: #EE001A !important;
+}
 }

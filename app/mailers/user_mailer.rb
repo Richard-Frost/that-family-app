@@ -7,7 +7,6 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Account activation"
   end
 
-
   def password_reset(user)
     @user = user
     mail :to => user.email, :subject => "Autumn's Play Date Password Reset"

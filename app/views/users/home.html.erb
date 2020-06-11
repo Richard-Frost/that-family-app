@@ -16,12 +16,23 @@
       <p> <%= playdate.datetime.strftime("%b %e, %l:%M %p")%> </p>
       <p> <%= link_to playdate.playdate_title, playdate_path(playdate) %> </p>
   <%end%>
-
   <%else%>
       <small><%=child.first_name%> does not have any play dates scheduled</small>
   <%end%> 
 </div>
 </div>
+<br>
+
+<div class"set-status">
+
+  <%= form_for(child) do |f| %>
+  <%= f.label :status, "Update Status" %></br>
+    <%=f.text_area :status %>
+    <%= f.submit %>
+  <%end%>
+  </div>
+
+
 
 
   <br>
@@ -67,6 +78,7 @@
     <input type=submit value='logout'>
   <%end%>
 </div>
+
 
 
 
