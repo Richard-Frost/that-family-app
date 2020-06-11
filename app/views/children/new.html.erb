@@ -16,7 +16,20 @@
 			<%= f.text_field :gender, class: "form-control" %>
 			<%= f.label :age%>
 			<br>
-			<%= f.date_select :age, :start_year=>1900,:end_year=>2020, class: "form-control" %>
+			<%= f.date_select :age, {
+            order: [:month, :day, :year],
+            date_separator: "/",
+            prompt: {
+                month: 'mm',
+                day: 'dd',
+                year: 'yyyy',
+            },
+
+
+
+
+
+			:start_year=>1900,:end_year=>2020} %>
 			<br>
 			<br>
 			<%= f.submit "Add Child" %>

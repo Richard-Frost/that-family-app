@@ -6,7 +6,9 @@ class ChildrenController < ApplicationController
   end
 
   def create
-    binding.pry
+    @child = Child.new(child_params)
+    @child.save
+    redirect_to "/home"
   end
 
   def edit
@@ -34,12 +36,14 @@ class ChildrenController < ApplicationController
   private
 
   def child_params
-    params.require(:child).permit(:bored, :status, :age, :first_name, :last_name)
+    params.require(:child).permit(:bored, :status, :age, :gender, :first_name, :last_name).merge(family_id: current_user.family.id)
   end
 
   def message_params
     params.permit(:message, :child_id, :user_id, created_at: DateTime.now)
   end
+
+
 
 
 
