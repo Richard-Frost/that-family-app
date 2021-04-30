@@ -1,9 +1,9 @@
 class Family < ApplicationRecord
 
-	has_secure_password
+	has_secure_password validations: false
 
 	has_many :children
-	has_many :users
+	has_many :users #, inverse_of: :user
 
 	has_many :requests
 	has_many :family_connections
@@ -21,8 +21,6 @@ class Family < ApplicationRecord
   end
   
 end
-
-
 # Family has_many :children
 # Child belongs_to :family
 

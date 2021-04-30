@@ -8,12 +8,21 @@ Rails.application.routes.draw do
   resources :users
   resources :password_resets
   resources :sessions
-
-  #get '/signup' => 'families#new'
+  get '/auth/twitter/callback' => 'omniauth_callbacks#twitter'
   get '/login' => 'sessions#new'
+  get '/menu' => 'sessions#create_menu'
   post '/logout' => 'sessions#destroy' 
   get '/home' => 'users#home' 
+  get '/auth/twitter/callback', to: 'omniauth_callbacks#twitter'
+  get '/twitter' => 'families#omniauth_new'
   post 'playdates/join' => 'playdates#join'
+
+  get '/omniuser'=> 'omniauth_callbacks#omniuser'
+  get '/omnichild'=> 'omniauth_callbacks#omnichild'
+  get '/omnifamily'=> 'omniauth_callbacks#omnifamily'
+
+
+
   root to: 'sessions#welcome'
   resources :playdates do
   resources :comments

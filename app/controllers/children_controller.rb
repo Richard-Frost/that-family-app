@@ -1,5 +1,7 @@
 class ChildrenController < ApplicationController
- 
+
+  before_action :logged_in?
+  skip_before_action :my_children, :only => [:new, :create, :update]
 
   def new
     @child = Child.new

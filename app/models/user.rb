@@ -1,9 +1,10 @@
 class User < ApplicationRecord
 	
-	has_secure_password
-	
-	belongs_to :family
+	has_secure_password 
+	belongs_to :family, optional: true
 	has_many :comments
+
+  validates :email, uniqueness: true
 
 def send_password_reset
     generate_token
@@ -15,5 +16,9 @@ def send_password_reset
       self.save!
   end 
  
+private
 
+def password_required
+  return true unless auth[hash] 
+end
 end

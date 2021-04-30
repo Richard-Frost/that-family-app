@@ -1,12 +1,19 @@
-<div class="content">
+<div class="child">
+  <div class="name">
+    <h3> Families requesting to connect with you </h3>
+  </div>
+  <br>
+  <div class="inner-content">
+  <% if @requests.empty? %>
+    <P> There are no requests for you at this time </p>
+  <%end%>
 
-<h3 class="title"> Families requesting to connect with you </h3>
-<br>
-<% @requests.each do |request| %>
-  <%= link_to request.family.family_title, family_path(request.famconnect_id) %></br>
+  <% @requests.each do |request| %>
+    <%= link_to request.family.family_title, family_path(request.famconnect_id) %></br>
     <%= form_for request do |f| %>
       <%= f.button "Accept", name: "button_action", value: "accept" %>
       <%= f.button "Decline", name: "button_action", value: "decline" %>
     <%end%>
-<%end%>
+  <%end%>
+  <div>
 </div>

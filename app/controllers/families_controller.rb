@@ -1,8 +1,8 @@
 class FamiliesController < ApplicationController
 
-  skip_before_action :my_children, :only => [:new, :create]
+  before_action :logged_in?
+  skip_before_action :my_children, :only => [:new, :create, :omniauth_new]
 
- 
   def new
     @family = Family.new
     @family.children.build
@@ -11,12 +11,19 @@ class FamiliesController < ApplicationController
   end
 
   def create
-  	@family = Family.new(family_params)
-    @family.users.last.parent = true if params[:family][:users_attributes]["0"][:title] == "Parent"
-  	@family.save
-    session[:user_id] = @family.users.last.id
+    @family = Family.create(family_params)
     binding.pry
+    #@family = current_user.build_family(family_params)
+    omnifamuser if current_user.omniuser
+    omni_redirect and return if current_user.omniuser
   	redirect_to "/home"
+  end
+
+  def omniauth_new
+    @user = User.find_by(id: session[:user_id])
+    @family = Family.new
+    @child = Child.new
+    @titles = ["Parent", "Grandparent", "Babysitter", "Nanny", "Other"]
   end
 
   def index
@@ -48,4 +55,13 @@ class FamiliesController < ApplicationController
     user.save
   end
 
+  def omnifamuser
+    current_user.family_id = @family.id
+    current_user.save
+  end
+
+    
  end
+
+
+ #current_user.build_family(family_params).save

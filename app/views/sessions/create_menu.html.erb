@@ -1,0 +1,16 @@
+<div class="login">
+  <div class="login-pic">
+    <%= image_tag('background4.jpg') %>
+  </div>
+  
+  
+    <div class="login2">
+	  <p> Sign up and create a new family </p>
+      <a href="<%=new_family_path%>" class="btn btn-outline-success" role="button">Sign Up</a>
+	  <p> Sign up and join a family </p>
+      <%= button_to "Create new User & Join a Family Account", new_user_path, method: :get, class: "btn btn-outline-success" %>
+	  <p> Sign up with Twitter </p>
+	  <%= button_to "Create new Account with Twitter", "/auth/twitter", method: :post, class: "btn btn-outline-success"%>
+	</div>
+  </div>
+</div>

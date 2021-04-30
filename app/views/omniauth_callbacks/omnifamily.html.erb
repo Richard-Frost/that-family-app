@@ -1,0 +1,22 @@
+<div class="child">
+  <div class="name">
+<h3> Welcome to that family app </h3>
+</div>
+<%= form_for(@family) do |f| %>
+
+<div class="child">
+  <div class="name">
+    <h3> Family Info </h3>
+  </div>
+  <%= f.label :family_title, "Add a fun Family Name" %></br>
+  <%= f.text_field :family_title, class: 'form-control' %></br>
+  <%= f.label :zipcode %> </br>
+  <%= f.text_field :zipcode, class: 'form-control' %></br>
+  <%= f.label :password, " Family Code" %></br>
+  <%= f.password_field :password, class: 'form-control' %></br>
+</div>
+
+
+  <%= f.submit %>
+<%end%>
+</div>

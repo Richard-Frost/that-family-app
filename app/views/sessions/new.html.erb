@@ -14,8 +14,9 @@
   		<%= password_field_tag('user[password]',nil, class: 'form-control')%></br>
   		<br>
   		<input type=submit value='Sign In' class="btn btn-outline-success" >
-  		<a href="<%=new_family_path%>" class="btn btn-outline-success" role="button">Sign Up</a>
+  		<a href="/menu" class="btn btn-outline-success" role="button">Sign Up</a>
 		<%end%> 
+		<%= button_to "Log in or sign up with Twitter", "/auth/twitter", method: :post%>
 	</div>
 	</div>
 </div>

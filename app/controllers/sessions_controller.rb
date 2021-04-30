@@ -14,6 +14,9 @@ class SessionsController < ApplicationController
   	redirect_to '/home'
   end
 
+  def create_menu
+  end
+
   def destroy
     session.delete :user_id
     redirect_to '/login'

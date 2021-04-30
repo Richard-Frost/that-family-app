@@ -81,6 +81,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.12.2)
@@ -88,6 +92,7 @@ GEM
     geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hashie (4.1.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
@@ -117,6 +122,20 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    oauth (0.5.6)
+    omniauth (2.0.3)
+      hashie (>= 3.4.6)
+      rack (>= 1.6.2, < 3)
+      rack-protection
+    omniauth-oauth (1.2.0)
+      oauth
+      omniauth (>= 1.0, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
+    omniauth-twitter (1.4.0)
+      omniauth-oauth (~> 1.1)
+      rack
     popper_js (1.16.0)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -124,6 +143,8 @@ GEM
     public_suffix (4.0.4)
     puma (3.12.4)
     rack (2.2.2)
+    rack-protection (2.1.0)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.2)
@@ -224,11 +245,14 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  dotenv-rails
   flatpickr
   geocoder
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  omniauth-rails_csrf_protection (~> 1.0)
+  omniauth-twitter (~> 1.4)
   pry
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.1)
@@ -243,7 +267,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.3.7p456
+   ruby 2.7.2p137
 
 BUNDLED WITH
-   2.0.1
+   2.2.7

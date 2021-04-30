@@ -1,8 +1,8 @@
-<div class="content">
-
-
-<p>Create a new play date: </p>
-
+<div class="child">
+  <div class="name">
+    <h3>Create a new play date: </h3>
+  </div>
+  <div class="container-fluid">
 <%= form_for(@playdate) do |f| %>
   <%= f.label :Playdate_title %></br>
   <%= f.text_field :playdate_title, class: 'form-control' %></br>
@@ -20,6 +20,7 @@
   <%= f.submit %>
   <br>
 <%end%>
+</div>
 </div>
 
 

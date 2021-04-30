@@ -87,12 +87,14 @@ body {
   border-radius: 10px;    
 }
 
+.login2 p {
+  color: white !important;
+}
+
 .login-pic img {
   width: 100% !important;
   height: auto !important;
 }
-
-
 
 .signup {
   -moz-box-shadow: 0 0 10px rgba(20,0,40,.5);
@@ -155,11 +157,22 @@ body {
     overflow-x: hidden;
 }
 
+.child h3  {
+  margin-left: 10px;
+  color: white !important;
+  text-shadow: 1px 1px rgb(102,0,102);
+  font-size: 30px;
+  padding: 5px;
+}
 .child h3 a {
   margin-left: 10px;
   color: white !important;
   text-shadow: 1px 1px rgb(102,0,102);
   font-size: 50px;
+}
+
+.inner-content {
+  padding:5px;
 }
 
 .set-status {
@@ -198,7 +211,6 @@ margin-left: 10px;
 .dateinfo p {
   margin-left: 10px;
 }
-
 
 .bored input {
   padding-left: 1%;
@@ -359,6 +371,10 @@ color: purple;
   font-size: 10vw;
 }
 
+.form-control {
+  padding: 5px !important;
+}
+
 @media (min-width: 992px) { 
 
 .container {
@@ -377,7 +393,6 @@ color: purple;
 	min-height: 100vh;
   height: 100%;
 }
-
 
 .color-1 { 
 background-color: #29C0E4 !important;

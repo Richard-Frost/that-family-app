@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_033040) do
+ActiveRecord::Schema.define(version: 2021_04_13_222530) do
 
   create_table "children", force: :cascade do |t|
     t.string "first_name"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_033040) do
     t.string "title"
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.boolean "omniuser", default: false
   end
 
 end

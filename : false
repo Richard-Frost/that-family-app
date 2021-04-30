@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /mnt/c/Users/richa/code/labs/that-family-app/app/controllers/omniauth_callbacks_controller.rb:7 OmniauthCallbacksController#twitter:
+
+     [1;34m5[0m: [32mdef[0m [1;34mtwitter[0m
+     [1;34m6[0m:   @user = [1;34;4mUser[0m.find_or_create_by([35memail[0m: auth_hash[[31m[1;31m'[0m[31minfo[1;31m'[0m[31m[0m][[31m[1;31m'[0m[31memail[1;31m'[0m[31m[0m])
+ =>  [1;34m7[0m:   binding.pry
+     [1;34m8[0m:   @user.first_name = split_name[[1;34m0[0m]
+     [1;34m9[0m:   @user.last_name = split_name[[1;34m1[0m]
+    [1;34m10[0m:   @user.password = [1;34;4mSecureRandom[0m.urlsafe_base64
+    [1;34m11[0m:   @user.omniuser == [1;36mtrue[0m
+    [1;34m12[0m:   @user.save!([33m:validate[0m => [1;36mfalse[0m)
+    [1;34m13[0m:   session[[33m:user_id[0m] = @user.id
+    [1;34m14[0m:   redirect_to [31m[1;31m'[0m[31m/twitter[1;31m'[0m[31m[0m
+    [1;34m15[0m: [32mend[0m
+

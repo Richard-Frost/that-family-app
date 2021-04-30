@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :current_user
   before_action :my_children
-	helper_method :current_user, :my_family, :logged_in?, :joined?, :my_children, :everyone_attending?, :playdates_near_me, :families_near_me
+	helper_method :current_user, :my_family, :logged_in?, :joined?, :my_children, :everyone_attending?, :playdates_near_me, :families_near_me, :omni_redirect
 
 private 
 
@@ -13,14 +13,23 @@ private
   end
 
   def my_family
-    current_user.family.id
+  
+    #return  current_user.family.id if current_user
+      #return nil if !current_user
+    if current_user.family != nil 
+      return  current_user.family.id
+    else
+      return nil
+    end
   end
+ 
 
   def my_children
-    current_user.family.children 
+    current_user.family.children if logged_in?
   end
 
   def logged_in?
+    #return head(:forbidden) unless session.include? :user_id
     !!current_user
   end 
 
@@ -50,7 +59,6 @@ private
 
   def families_near_me
     geo = Geocoder.search(current_user.family.zipcode.to_i).first
-    binding.pry
     lat = geo.latitude
     lon = geo.longitude
     distance = 5
@@ -59,15 +67,23 @@ private
     Family.within_bounding_box(box)
   end
 
+  def omni_redirect 
+    if current_user.title == nil
+      redirect_to '/omniuser'
+    elsif current_user.family_id == nil
+      redirect_to '/omnifamily' if current_user.family_id == nil
+    elsif current_user.family.children.empty?
+      redirect_to '/omnichild' if current_user.family.children.empty?
+    end
+  end
+
 
 layout :resolve_layout
-
-  # ...
 
   private
 
   def resolve_layout
-    if !logged_in?
+    if !logged_in? || my_family == nil
       "welcome"
     else
       "application"

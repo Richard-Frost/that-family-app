@@ -1,0 +1,56 @@
+<div class="child">
+  <div class="name">
+<h3> Welcome to that family app </h3>
+</div>
+<%= form_for(@family) do |f| %>
+<p> User Info: </p>
+  <hr>
+  <%= f.fields_for :users, @user do |user| %>
+    <%= user.label :first_name %></br>
+    <%= user.text_field :first_name, class: 'form-control' %></br>
+    <%= user.label :last_name %></br>
+    <%= user.text_field :last_name,class: 'form-control' %></br>
+    <%= user.label :title, 'Relationship to the child:' %></br>
+    <%= user.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle'] %></br>
+    <br>
+
+    <%= user.label :email, "Email:" %></br>
+    <%= user.text_field :email, class: 'form-control' %><br>
+ 
+    <%= user.label :password, "Password:"  %></br>
+    <%= user.password_field :password, class: 'form-control'%><br>
+   <%end%>
+ 
+</div>
+
+
+<div class="child">
+  <div class="name">
+    <h3> Family Info </h3>
+  </div>
+  <%= f.label :family_title, "Add a fun Family Name" %></br>
+  <%= f.text_field :family_title, class: 'form-control' %></br>
+  <%= f.label :zipcode %> </br>
+  <%= f.text_field :zipcode, class: 'form-control' %></br>
+  <%= f.label :password, " Family Code" %></br>
+  <%= f.password_field :password, class: 'form-control' %></br>
+</div>
+
+<div class="child">
+  <div class="name">
+    <h3>Add a child</h3>
+  </div>
+
+  <%= f.fields_for :children, @child do |child| %>
+  	<%= child.label :first_name %></br>
+  	<%= child.text_field :first_name, class: 'form-control' %></br>
+  	<%= child.label :last_name %></br>
+  	<%= child.text_field :last_name, class: 'form-control' %></br>
+  	<%= child.label :gender %></br>
+  	<%= child.text_field :gender, class: 'form-control' %></br>
+  	<%= child.label :age %></br>
+  	<%= child.text_field :age, class: 'form-control' %></br>
+  <%end%>
+  <%= f.submit %>
+<%end%>
+</div>
