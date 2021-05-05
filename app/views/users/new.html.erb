@@ -7,6 +7,18 @@
 <div class="login"%>
 	<div class="login2">
 		<div class="container-fluid field_with_errors">
+
+		<% if @user
+		.errors.any? %>
+      <div id="error_explanation">
+        <b><%= pluralize(@family.errors.count, "error") %>prohibited this post from being saved:</b>
+        <ul>
+          <% @family.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <%end%>
+        </ul>
+     </div>
+    <%end%>
 	
 		<%= form_for(@user) do |f| %>
 			<%= f.label :first_name %>
@@ -17,8 +29,15 @@
 			<%= f.text_field :email, class: "form-control" %>
 			<%= f.label :password %>
 			<%= f.password_field :password, class: "form-control" %>
+
+			<%= f.fields_for :family, @family do |fam| %>
+			  <%= fam.label :email %>
+			  <%= fam.text_field :email ,class: "form-control" %>
+			  <%= fam.label :family_code %>
+			  <%= fam.password_field :password, class: "form-control"%>
 			<br>
 			<%= f.submit %>
+		  <%end%>
 		<%end%>
 	</div>
 	</div>

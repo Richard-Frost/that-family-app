@@ -8,9 +8,20 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		@family = Family.new
   end
 
     def create
+	  @user = User.new(user_params)
+	  @family = Family.find_by(email: params[:user][:family][:email]).try(:authenticate, params[:user][:family][:password])
+	  @user.family_id = @family.id if @family
+	  @user.save
+	  if @user.errors.any?
+		render :new 
+	  else
+	  session[:user_id] = @user.id
+      redirect_to "/home"
+	  end
     end
 
 	def edit
@@ -19,15 +30,16 @@ class UsersController < ApplicationController
 
 	def update
 	  @user = User.find_by_id(params[:id])
-  	  current_user.update(user_params)
-	  omni_redirect
-  	  redirect_to "/home"
+  	  @user.update(user_params)
+	  if @user.omniuser == true
+	  	omni_redirect 
+	  else
+  	  	redirect_to "/home"
 	end
-
+end
 	private
 
 	def user_params
-	  params.require(:user).permit(:first_name, :last_name, :password, :email, :title)
+	  params.require(:user).permit(:first_name, :last_name, :password, :email, :title, family_attributes: [:password, :email])
 	end
-
 end

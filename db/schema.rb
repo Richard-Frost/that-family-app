@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_222530) do
+ActiveRecord::Schema.define(version: 2021_05_05_180838) do
 
   create_table "children", force: :cascade do |t|
     t.string "first_name"
@@ -40,11 +40,20 @@ ActiveRecord::Schema.define(version: 2021_04_13_222530) do
     t.string "password_digest"
     t.float "latitude"
     t.float "longitude"
+    t.string "email"
   end
 
   create_table "family_connections", force: :cascade do |t|
     t.integer "family_id"
     t.integer "famconnect_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "familytags", force: :cascade do |t|
+    t.integer "family_id"
+    t.integer "tag_id"
+    t.integer "importance_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,6 +79,12 @@ ActiveRecord::Schema.define(version: 2021_04_13_222530) do
   create_table "requests", force: :cascade do |t|
     t.integer "family_id"
     t.integer "famconnect_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

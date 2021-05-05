@@ -374,6 +374,9 @@ color: purple;
 .form-control {
   padding: 5px !important;
 }
+.field_with_errors label {
+  color: red;
+}
 
 @media (min-width: 992px) { 
 

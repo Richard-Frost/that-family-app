@@ -1,5 +1,5 @@
 class Family < ApplicationRecord
-
+ 
 	has_secure_password validations: false
 
 	has_many :children
@@ -9,6 +9,9 @@ class Family < ApplicationRecord
 	has_many :family_connections
   has_many :famconnects, through: :family_connections
 
+  has_many :familytags
+  has_many :tags, through: :familytags
+
 
 	accepts_nested_attributes_for :users
   accepts_nested_attributes_for :children
@@ -16,6 +19,7 @@ class Family < ApplicationRecord
   geocoded_by :zip_code
   after_validation :geocode
 
+  
   def zip_code
     zipcode
   end

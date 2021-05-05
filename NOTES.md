@@ -35,16 +35,31 @@ end
 password_resets_path, :method => :post
 
 
-
 <meta HTTP-EQUIV="REFRESH" content="3; url=http://localhost:3000/home">
 
 
+
 omniauth login 
+***************
+auth/twitter
+finds or creates a user
+
+if creating a new user 
+**********************
+it cretes a user with the email address and name from twitter 
+
+it uses user_attributes to to split the name,
+create a random password, and set User.omniuser = true
+
+#twitter then continues by setting session[:user_id]
+and then calls the helper method #omniredirect
+
+omni_redirect
+*************
+
+helps determine what step of a sign up the user is currently at and then redirects to the correct view
 
 
-login - 
-
-login or sign up with Twitter link 
 
 
 

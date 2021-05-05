@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   resources :requests
   resources :family_connections
   resources :comments
@@ -20,10 +21,9 @@ Rails.application.routes.draw do
   get '/omniuser'=> 'omniauth_callbacks#omniuser'
   get '/omnichild'=> 'omniauth_callbacks#omnichild'
   get '/omnifamily'=> 'omniauth_callbacks#omnifamily'
-
-
-
+  
   root to: 'sessions#welcome'
+
   resources :playdates do
   resources :comments
   end

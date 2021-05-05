@@ -4,6 +4,9 @@ class User < ApplicationRecord
 	belongs_to :family, optional: true
 	has_many :comments
 
+	#accepts_nested_attributes_for :family
+
+
   validates :email, uniqueness: true
 
 def send_password_reset

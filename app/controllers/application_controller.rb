@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
 private 
 
   def current_user
-	@current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+	  @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def my_family
   
     #return  current_user.family.id if current_user
-      #return nil if !current_user
+    #return nil if !current_user
     if current_user.family != nil 
       return  current_user.family.id
     else
@@ -71,12 +71,11 @@ private
     if current_user.title == nil
       redirect_to '/omniuser'
     elsif current_user.family_id == nil
-      redirect_to '/omnifamily' if current_user.family_id == nil
+       redirect_to '/omnifamily'
     elsif current_user.family.children.empty?
-      redirect_to '/omnichild' if current_user.family.children.empty?
+      redirect_to '/omnichild'
     end
   end
-
 
 layout :resolve_layout
 
