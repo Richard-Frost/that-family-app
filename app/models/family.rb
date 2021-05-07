@@ -9,12 +9,13 @@ class Family < ApplicationRecord
 	has_many :family_connections
   has_many :famconnects, through: :family_connections
 
-  has_many :familytags
-  has_many :tags, through: :familytags
+  has_many :family_tags
+  has_many :tags, through: :family_tags
 
 
 	accepts_nested_attributes_for :users
   accepts_nested_attributes_for :children
+  accepts_nested_attributes_for :family_tags
 
   geocoded_by :zip_code
   after_validation :geocode

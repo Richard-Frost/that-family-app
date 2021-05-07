@@ -46,6 +46,10 @@
       <%end%>
     <%end%>
   </div>
+  <h3> Family Tags <h3>
+  <% current_user.family.tags.each do |tag| %>
+   <p> <%= tag.name%> </p>
+  <%end%>
   
   </div>
 </div>
@@ -64,10 +68,6 @@
 
 </div>
 </div>
-
-
-
-
 
   <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
     <input type=submit value='logout'>

@@ -1,27 +1,24 @@
 <div class="child">
-
   <div class="name">
     <h2> <%= @playdate.playdate_title %> </h2>
   </div>
 
   <div class ="container-fluid">
-  <h4> Details: </h4>
+    <h4> Details: </h4>
     <div class ="container-fluid"> 
 	  <p> When: <%= @playdate.datetime.strftime("%b %e, %l:%M %p")%> </p>
 	  <p> Description: <%= @playdate.description %> </p>
 
-	<% unless everyone_attending? %>
-
-		<%= form_for :playdate, :url => url_for(:controller => 'playdates', :action => 'join') do |f| %>
-			<%= f.hidden_field :playdate_id, value: @playdate.id %>
+	  <% unless everyone_attending? %>
+	    <%= form_for :playdate, :url => url_for(:controller => 'playdates', :action => 'join') do |f| %>
+		  <%= f.hidden_field :playdate_id, value: @playdate.id %>
 		  <%= f.label :child_ids, "Select a Child:  " %>
 		  <%= f.collection_check_boxes :child_ids, @family.children, :id, :first_name  %></br>
 		  <%=binding.pry%>
 		<%= f.submit %>
 		<%end%>
-	<%end%>
-
-	<hr/>
+	  <%end%>
+	  <hr/>
 
 	<p> Participants: </p>
 

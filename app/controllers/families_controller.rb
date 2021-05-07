@@ -13,7 +13,6 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     @family.email = current_user.email
-    binding.pry
     @family.save
     if @family.errors.any?
        render :new 
@@ -54,9 +53,6 @@ class FamiliesController < ApplicationController
   def family_params
     params.require(:family).permit(:email, :password, :family_title, :zipcode, users_attributes: [:first_name, :last_name, :email,:password, :title], children_attributes: [:first_name, :last_name, :age, :gender]).merge(latitude: geo.latitude, longitude: geo.longitude)
   end
-  
-  
-
 
   def parent
     user = @family.users.last
