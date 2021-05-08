@@ -8,12 +8,9 @@ class TagsController < ApplicationController
     end
 
     def create
-      current_user.family.tags.create(tag_params)
-      binding.pry
-
+      Tag.create(tag_params)
       redirect_to '/home'
     end
-
 
 private 
 

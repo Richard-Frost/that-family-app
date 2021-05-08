@@ -12,6 +12,12 @@ private
 	  @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
+  def age 
+    binding.pry 
+    @age = current_user.family.children.age 
+    @age.to_time
+  end
+
   def my_family
   
     #return  current_user.family.id if current_user

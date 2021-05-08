@@ -11,69 +11,60 @@
 
       <div class="dateinfo">
         <% if child.upcoming_playdates.any? %>
-        <% child.upcoming_playdates.each do |playdate| %>
+          <% child.upcoming_playdates.each do |playdate| %>
           <p><%= playdate.datetime.strftime("%b %e, %l:%M %p")%></p>
           <p><%= link_to playdate.playdate_title, playdate_path(playdate) %></p>
         <%end%>
         <%else%>
           <small><%=child.first_name%> does not have any play dates scheduled</small>
         <%end%> 
+      </div>
     </div>
-  </div>
-  <br>
-  <div class"set-status">
-    <%= form_for(child) do |f| %>
-      <%= f.label :status, "Update Status" %></br>
-      <%=f.text_area :status %>
-      <%= f.submit %>
-    <%end%>
-  </div>
-  <br>
-  <br>
 
-  <div class="pink">
-    <h6 class="blue"> Update status: Is <%= child.first_name.capitalize %> bored today? </h6>
-  </div>
+    <br>
+    <div class"set-status">
+      <%= form_for(child) do |f| %>
+        <%= f.label :status, "Update Status" %></br>
+        <%=f.text_area :status %>
+        <%= f.submit %>
+      <%end%>
+    </div>
+    <br>
+    <br>
 
-  <div class="bored">
-    <%= form_for(child) do |f| %>
-      <%if child.bored%>
-        <%= f.hidden_field :bored, value: false %>
-        <%= f.submit "turn bored alert off" %>
-      <% else %>
-        <%= f.submit "turn bored alert on" %>
-        <%= f.hidden_field :bored, value: true %>
+    <div class="pink">
+      <h6 class="blue"> Update status: Is <%= child.first_name.capitalize %> bored today? </h6>
+    </div>
+
+    <div class="bored">
+      <%= form_for(child) do |f| %>
+        <%if child.bored%>
+          <%= f.hidden_field :bored, value: false %>
+          <%= f.submit "turn bored alert off" %>
+        <% else %>
+          <%= f.submit "turn bored alert on" %>
+          <%= f.hidden_field :bored, value: true %>
+        <%end%>
       <%end%>
     <%end%>
+    </div>   
   </div>
-  <h3> Family Tags <h3>
-  <% current_user.family.tags.each do |tag| %>
-   <p> <%= tag.name%> </p>
-  <%end%>
   
+  <div class="child">
+    <div class="name">
+      <h3> Kids that are Bored! </h3>
+    </div>
+
+    <div class="container-fluid">
+      <% Child.i_am_bored.each do |child| %>
+      <%= link_to child.first_name, child_path(child.id) %></br>
+    <%end%>
+    </div>
   </div>
-</div>
-  <%end%>
-
-<div class="child">
-  <div class="name">
-    <h3> Kids that are Bored! </h3>
-  </div>
-
-<div class="container-fluid">
-
-  <% Child.i_am_bored.each do |child| %>
-    <%= link_to child.first_name, child_path(child.id) %></br>
-  <%end%>
-
-</div>
-</div>
 
   <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
     <input type=submit value='logout'>
   <%end%>
 </div>
-
-
-
+</div>
 
