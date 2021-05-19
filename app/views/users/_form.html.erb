@@ -1,0 +1,21 @@
+<%= form_for(@user) do |f| %>
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name, class: "form-control" %>
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name ,class: "form-control" %>
+			<%= f.label :title, 'Relationship to the child:' %></br>
+			<%= f.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle'] %></br>
+			<%= f.label :email %>
+			<%= f.text_field :email, class: "form-control" %>
+			<%= f.label :password %>
+			<%= f.password_field :password, class: "form-control" %>
+
+			<%= f.fields_for :family, @family do |fam| %>
+			  <%= fam.label :email %>
+			  <%= fam.text_field :email ,class: "form-control" %>
+			  <%= fam.label :family_code %>
+			  <%= fam.password_field :password, class: "form-control"%>
+			<br>
+			<%= f.submit %>
+		  <%end%>
+		<%end%>

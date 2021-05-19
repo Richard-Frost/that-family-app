@@ -2,22 +2,5 @@
   <div class="name">
     <h4> Edit User </h4>
   </div>
-
-<%= form_for(@user) do |f| %>
-    <%= f.label :first_name %></br>
-    <%= f.text_field :first_name %></br>
-    <%= f.label :last_name %></br>
-    <%= f.text_field :last_name %></br>
-    <%= f.label :title, 'Relationship to the child:' %></br>
-    <%= f.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle'] %></br>
-
-    <%= f.label :email, "Email:" %></br>
-    <%= f.text_field :email %><br>
- 
-    <%= f.label :password, "Password:"  %></br>
-    <%= f.password_field :password%><br>
-    <%= f.submit %>
-  <br>
-<%end%>
-
+  <%= render "form" %>
 </div>

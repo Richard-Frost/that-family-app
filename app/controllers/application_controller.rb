@@ -2,11 +2,9 @@ class ApplicationController < ActionController::Base
 
   layout :resolve_layout
 
-  #before_action :current_user
-  #before_action :my_children
 	helper_method :current_user, :my_family, :logged_in?, :my_children,  :playdates_near_me, :omni_redirect, :user_complete, :logged_in
 
-private 
+  private 
 
   def current_user
 	  @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -31,7 +29,6 @@ private
   end
     
   def logged_in?
-    #return head(:forbidden) unless session.include? :user_id
     !!current_user
   end 
 
@@ -48,7 +45,6 @@ private
   def user_complete
     current_user && current_user.family && current_user.family.children
   end
-#layout :resolve_layout
 
   private
 
