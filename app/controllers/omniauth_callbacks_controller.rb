@@ -1,6 +1,5 @@
 class OmniauthCallbacksController < ApplicationController
-  skip_before_action :my_children
-  
+   
   def twitter
     @user = User.find_or_create_by(email: auth_hash['info']['email'])
     if @user.family 

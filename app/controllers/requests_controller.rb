@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
 
-  before_action :logged_in?
+  before_action :logged_in
 
   def new
     @request = Request.new
@@ -42,6 +42,4 @@ class RequestsController < ApplicationController
   def accept
     params[:button_action] == "accept"
   end
-
-
 end

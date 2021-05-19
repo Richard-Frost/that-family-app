@@ -1,12 +1,11 @@
 class PasswordResetsController < ApplicationController
-
-  skip_before_action :my_children
-  
+ 
   def new
   end
 
   def create 
     user = User.find_by_email(params[:email])
+    binding.pry
     user.send_password_reset if user
     redirect_to '/login', :alert => "Email sent with password reset instructions."
   end

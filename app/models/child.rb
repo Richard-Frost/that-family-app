@@ -6,6 +6,10 @@ class Child < ApplicationRecord
 	has_many :participants  
   has_many :playdates, through: :participants
 
+  validates_presence_of :age
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+
   def playdate_today
 		self.playdates.where(datetime: Date.today.beginning_of_day..Date.today.end_of_day).order(datetime: :asc)
   end 

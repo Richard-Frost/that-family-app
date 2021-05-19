@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-
-  skip_before_action :my_children
-  
+   
   def welcome
   end
 
@@ -21,6 +19,4 @@ class SessionsController < ApplicationController
     session.delete :user_id
     redirect_to '/login'
   end
-
-
 end 

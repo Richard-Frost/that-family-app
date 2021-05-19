@@ -32,8 +32,8 @@ body {
   margin-left: 300px !important;
   height: 500px;
   max-height: 500px;
-  width:900px; /* or whatever width you want. */
-  max-width:900px; /* or whatever width you want. */
+  width:900px; 
+  max-width:900px; 
   display: block;
   overflow-x: hidden; 
   -moz-box-shadow: 0 0 10px rgba(0,0,0,.9);
@@ -200,12 +200,25 @@ border-radius: 10px;
 overflow: hidden;
 }
 
+.light-purple { 
+  color:  black;
+  background-color: #f1d0fd;
+  border: 1px solid   #f58aff;
+  border-radius: 10px;
+  overflow: hidden;
+  } 
+
+.light-purple h4{
+  margin-left: 10px;
+}
+
 .playdates h4 {
 margin-left: 10px;
 }
 
 .dateinfo {
   background-color: white !important;
+  padding: 10px;
 }
 
 .dateinfo p {
@@ -291,6 +304,17 @@ hr {
   border-bottom: .5px solid #e6ffe6;
   
 }
+.dropdown-item {
+  padding-top: 10px;
+  background-color: white;
+  color:  black;
+
+  border-bottom: .5px solid black;
+  pointer-events: none;
+  
+}
+
+
 
 .btn-link {
   color: white !important;
@@ -303,7 +327,7 @@ margin-left: 40px;
 }
 
 .navbar {
-	background-color: #6acc49 !important;
+	background-color: rgba(52, 209, 0, .9) !important;
 	border-color: white !important;
 }
 
@@ -360,7 +384,10 @@ b {
 
 .participants a {
 color: purple;
-  
+
+.purple h3 {
+  color: purple !important;
+} 
 }
 .family-title {
   color: black;

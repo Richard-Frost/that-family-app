@@ -1,0 +1,15 @@
+<div class="child">
+  <div class="name">
+    <h3><%=@family.family_title %> Tags</h3>
+  </div>
+  <%= link_to "Create New Family Tag", new_family_tag_path(@family.id)%></br>
+  <hr>
+    <% @tags.each do |tag| %>
+      <b><%= tag.name%></b>
+      <div class="comment">
+      	<%= link_to "Edit", edit_family_tag_path(@family.id, tag.id), class: 'small-left' %>
+      	<%= link_to "Delete", family_tag_path(@family.id, tag.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %> 
+    </div>
+    <%end%>
+</div>
+

@@ -5,10 +5,3 @@ end
 
 
 
-#family
-#has_many :family_connections
-#has_many :famconnects, through: :family_connections
-
-
-#Family connection - join table stores "family_id" & "famconnect_id"
-

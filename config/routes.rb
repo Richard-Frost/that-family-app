@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/omnichild'=> 'omniauth_callbacks#omnichild'
   get '/omnifamily'=> 'omniauth_callbacks#omnifamily'
   
+  get '/settings' => 'families#settings'
   root to: 'sessions#welcome'
 
   resources :playdates do

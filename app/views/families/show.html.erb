@@ -1,25 +1,45 @@
-
 <div class="child">
   <div class="name">
     <h3> <%=@family.family_title%> </h3>
   </div>
 
-  <div class="inner-content">
-    <% @family.children.each do |child| %>
-    <b> Child:</b> <%= child.first_name.capitalize %></br>
+<!-- family members info -->
+  <div class="playdates">
+    <h4> Family Members </h4>
+
+    <div class="dateinfo">
+      <% @family.users.each do |user| %>
+        <b><%= user.title %>:</b> <%= user_name(user) %></br>
+      <%end%>
+
+      <% @family.children.each do |child| %>
+        <b> Child:</b> <%= child_name(child) %></br>
+      <%end%>
+    </div>
+  </div>
+  <br>
+  <!-- family interests (tags) -->
+  <div class="light-purple">
+    <h4> Family Interests </h4>
+    <div class="dateinfo">
+      <% @family.tags.each do |tag| %>
+        <%= tag.name %> 
+      <%end%>
+    </div>
+  </div>
+
+  
+
+  <!-- family request to connect -->
+    <%if current_user.family.id != @family.id%>
+      <%= form_for(@request) do |f| %>
+    	  <%= f.hidden_field :famconnect_id, value: params[:id], class: 'form-control'  %>
+        <%= f.hidden_field :family_id, value: current_user.family.id %>
+        <%= f.submit%>
+      <%end%>
     <%end%>
-
-
-  <% @family.users.each do |user| %>
-    <b><%= user.title %>:</b> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %></br>
-  <%end%>
-
-  <%= form_for(@request) do |f| %>
-	  <%= f.hidden_field :famconnect_id, value: params[:id], class: 'form-control'  %>
-    <%= f.hidden_field :family_id, value: current_user.family.id %>
-    <%= f.submit%>
-  <%end%>
   </div>
 </div>
+
 
 

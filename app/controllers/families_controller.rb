@@ -1,8 +1,7 @@
 class FamiliesController < ApplicationController
 
-  before_action :logged_in?, :only => [:new, :create, :omniauth_new]
-  skip_before_action :my_children, :only => [:new, :create, :omniauth_new]
-
+  before_action :logged_in, :only => [:index, :show, :edit]
+  
   def new
     @family = Family.new
     @family.children.build
@@ -12,7 +11,7 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
-    @family.email = current_user.email
+    family_email
     @family.save
     if @family.errors.any?
        render :new 
@@ -22,6 +21,22 @@ class FamiliesController < ApplicationController
       omni_redirect and return if omniuser?
   	  redirect_to "/home"
     end
+  end
+
+  def update 
+    @family = current_user.family
+    @family.update(family_params)
+    @family.save
+    if @family.errors.any?
+       render :edit
+    else
+      @family.save
+    end
+    redirect_to '/home'
+  end
+
+  def settings
+    @family = current_user.family
   end
 
   def omniauth_new
@@ -41,7 +56,7 @@ class FamiliesController < ApplicationController
   end
 
   def edit
-    @family = my_family
+    @family = current_user.family
   end
 
   private
@@ -68,7 +83,14 @@ class FamiliesController < ApplicationController
   def omniuser?
     current_user.omniuser == true
   end
-    
+
+  def family_email
+    if current_user
+      @family.email = current_user.email
+    else
+     @family.email = family_params[:users_attributes]["0"][:email]
+    end
+  end  
  end
 
 

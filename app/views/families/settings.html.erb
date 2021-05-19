@@ -1,0 +1,12 @@
+<div class="child">
+  <div class="name">
+    <h3> Settings </h3>
+  </div>
+  <%= link_to "Edit Your User Account", edit_user_path(current_user), class: "btn btn-outline-success"  %></br>
+  <%= link_to "Edit Family Tags", family_tags_path(@family.id), class: "btn btn-outline-success" %></br>
+  <%= link_to "Add A Child", new_child_path, class: "btn btn-outline-success"  %></br>
+  <%= link_to "Edit Family Account", edit_family_path(@family), class: "btn btn-outline-success"  %></br>
+  
+  <% current_user.family.children.each do |child| %>   
+    <%= link_to "Edit #{child.first_name}'s Profile", edit_child_path(child), class: "btn btn-outline-success"  %></br>
+  <%end%>

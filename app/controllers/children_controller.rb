@@ -1,10 +1,12 @@
 class ChildrenController < ApplicationController
 
-  before_action :logged_in?
-  skip_before_action :my_children, :only => [:new, :create, :update]
+  before_action :logged_in
 
   def new
     @child = Child.new
+  end
+
+  def index
   end
 
   def create
@@ -14,6 +16,7 @@ class ChildrenController < ApplicationController
   end
 
   def edit
+    @child = Child.find(params[:id])
   end
 
   def update
@@ -24,7 +27,6 @@ class ChildrenController < ApplicationController
 
   def show
     @child = Child.find(params[:id])
-    #@messages = @child.messages
   end
 
   def message
@@ -33,7 +35,6 @@ class ChildrenController < ApplicationController
     @message.save
     redirect_to child_path(@child)
   end
-
 
   private
 
@@ -44,10 +45,6 @@ class ChildrenController < ApplicationController
   def message_params
     params.permit(:message, :child_id, :user_id, created_at: DateTime.now)
   end
-
-
-
-
 
 end
 

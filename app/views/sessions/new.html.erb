@@ -16,7 +16,10 @@
   		<input type=submit value='Sign In' class="btn btn-outline-success" >
   		<a href="/menu" class="btn btn-outline-success" role="button">Sign Up</a>
 		<%end%> 
-		<%= button_to "Log in or sign up with Twitter", "/auth/twitter", method: :post%>
+		<br>
+		<%= button_to "Log in with Twitter", "/auth/twitter", method: :post, class: "btn btn-outline-success"%>
+	
+		<%= link_to "forgot password?", new_password_reset_path %>
 	</div>
 	</div>
 </div>

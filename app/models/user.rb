@@ -1,15 +1,16 @@
 class User < ApplicationRecord
 	
 	has_secure_password 
+
 	belongs_to :family, optional: true
 	has_many :comments
 
-	
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :email
+  validates_uniqueness_of :email
 
-
-  validates :email, uniqueness: true
-
-def send_password_reset
+  def send_password_reset
     generate_token
     UserMailer.password_reset(self).deliver_now!
   end
@@ -21,7 +22,7 @@ def send_password_reset
  
 private
 
-def password_required
-  return true unless auth[hash] 
-end
+  def password_required
+    return true unless auth[hash] 
+  end
 end
