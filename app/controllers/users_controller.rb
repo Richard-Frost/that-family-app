@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :logged_in, except: [:new, :create]
 
-	def home
+  def home
 	end
 
 	def new
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 	def update
 	  @user = User.find_by_id(params[:id])
-  	  @user.update(user_params)
+  	@user.update(user_params)
 	  if @user.omniuser == true
 	  	omni_redirect unless user_complete
 	  end
@@ -42,3 +42,4 @@ class UsersController < ApplicationController
 	  params.require(:user).permit(:first_name, :last_name, :password, :email, :title, family_attributes: [:password, :email])
 	end
 end
+
