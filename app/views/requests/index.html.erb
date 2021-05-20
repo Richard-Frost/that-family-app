@@ -9,7 +9,7 @@
   <%end%>
 
   <% @requests.each do |request| %>
-    <%= link_to request.family.family_title, family_path(request.famconnect_id) %></br>
+    <%= link_to request.family.family_title, family_path(request.family_id) %></br>
     <%= form_for request do |f| %>
       <%= f.button "Accept", name: "button_action", value: "accept" %>
       <%= f.button "Decline", name: "button_action", value: "decline" %>
