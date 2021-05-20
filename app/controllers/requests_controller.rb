@@ -11,15 +11,8 @@ class RequestsController < ApplicationController
     redirect_to home_path
   end
 
-  def show
-    binding.pry
-  end
-
   def index
     @requests = Request.all.where(famconnect_id: my_family)
-  end
-
-  def destroy
   end
 
   def update 
@@ -27,10 +20,8 @@ class RequestsController < ApplicationController
     if accept
       FamilyConnection.create(family_id: req.family_id, famconnect_id: req.famconnect_id)
       FamilyConnection.create(family_id: req.famconnect_id, famconnect_id: req.family_id)
-      req.delete
-    else
-      req.delete
     end
+    req.delete
     redirect_to '/requests'
   end
 

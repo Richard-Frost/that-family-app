@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tags
-  resources :requests
+  resources :requests, :except => [:show]
   resources :family_connections
   resources :comments
   resources :playdates
