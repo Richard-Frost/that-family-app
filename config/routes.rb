@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-  resources :tags
   resources :requests, :except => [:show]
   resources :family_connections
-  resources :comments
+  resources :comments, only: [:index, :create]
   resources :playdates
-  resources :children
+  resources :children 
   resources :families
   resources :users
   resources :password_resets
-  resources :sessions
-  get '/auth/twitter/callback' => 'omniauth_callbacks#twitter'
+  resources :sessions, only: [:new, :create]
+  #get '/auth/twitter/callback' => 'omniauth_callbacks#twitter'
   get '/login' => 'sessions#new'
   get '/menu' => 'sessions#create_menu'
   post '/logout' => 'sessions#destroy' 
@@ -23,15 +22,14 @@ Rails.application.routes.draw do
   get '/omnifamily'=> 'omniauth_callbacks#omnifamily'
   
   get '/settings' => 'families#settings'
-  root to: 'sessions#welcome'
 
   resources :playdates do
-  resources :comments
+  resources :comments, only: [:edit,:show, :destroy]
   end
-
+  
   resources :families do
   resources :tags
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'sessions#welcome'
+  
 end
