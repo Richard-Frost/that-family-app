@@ -1,7 +1,12 @@
-  
-<h1> Reset Password </h1>
-<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-<%= f.submit "Update Password" %>
-<%end%>
+ <div class="child">
+  <div class="name">
+    <h3>Reset Password</h3>
+  </div>
+  <div class="inner-content">
+    <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    <%= f.submit "Update Password" %>
+    <%end%>
+  </div>
+</div>
