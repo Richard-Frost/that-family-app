@@ -1,6 +1,6 @@
 <div class="child">
   <div class="name">
-    <h2> <%= @playdate.playdate_title %> </h2>
+    <h3> <%= @playdate.playdate_title %> </h3>
   </div>
 
   <div class ="container-fluid">
@@ -25,7 +25,7 @@
     	<div class="participants"><p> <%= link_to child.first_name, child_path(child) %> </p></div>
 	  <%end%>
   </div>
-</div>
+
 
 
 <!-- leave a comment -->
@@ -38,7 +38,7 @@
   		<%= f.submit %>
 		<%end%>
 
-
+</div>
 <!-- comments -->
 
 	<div class="container-fluid">
@@ -48,17 +48,16 @@
   	    <div class="comment2">
       	  <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
         </div>
-		    
-        <div>
+		
 	
     	  <% if comment.user_id == current_user.id %>
-    	    <div class="comment">
+    	    <div class="comment comment3">
       	    <%= link_to "Edit", edit_playdate_comment_path(@playdate.id, comment.id), class: 'small-left' %>
       	    <%= link_to "Delete", playdate_comment_path(@playdate.id, comment.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %>
     		  </div>
     	  <%end%>
       <br>
-  	  </div>
+  	  
   	<%end%>
 	</div>
 
