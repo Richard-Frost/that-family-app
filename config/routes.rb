@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :requests, :except => [:show]
   resources :family_connections
-  resources :comments, only: [:index, :create]
+  #resources :comments, only: [:index, :create]
   resources :playdates
   resources :children 
   resources :families
@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   get '/settings' => 'families#settings'
 
   resources :playdates do
-  resources :comments, only: [:edit,:show, :destroy]
+  resources :comments#, only: [:edit,:show, :destroy]
   end
-  
+
   resources :families do
   resources :tags
   end

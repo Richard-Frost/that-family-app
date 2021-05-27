@@ -17,6 +17,7 @@ class PlaydatesController < ApplicationController
   	@playdate = Playdate.find(params[:id])
     @originator = User.find(@playdate.originator)
     @family = current_user.family
+    @comment = Comment.new
   end
 
   def index

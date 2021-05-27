@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
 
 	def create
-    Comment.create(comment: params[:playdates][:comment], user_id: current_user.id, playdate_id: params[:playdate_id])
+    Comment.create(comment_params)
+    binding.pry
+    #Comment.create(comment: params[:playdates][:comment], user_id: current_user.id, playdate_id: params[:playdate_id])
     redirect_to playdate_path(params[:playdate_id])
   end 
 
@@ -27,7 +29,7 @@ class CommentsController < ApplicationController
 private
 
   def comment_params
-    params.require(:comment).permit(:comment, :playdate_id, :id)
+    params.require(:comment).permit(:comment, :playdate_id, :user_id)
   end
 
 end
