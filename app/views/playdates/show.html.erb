@@ -36,7 +36,7 @@
    		<%= f.hidden_field :playdate_id, value: @playdate.id %>
 			<%= f.hidden_field :user_id, value: current_user.id %>
   		<%= f.submit %>
-		<%end%>s
+		<%end%>
 
 
 <!-- comments -->
@@ -48,7 +48,8 @@
   	    <div class="comment2">
       	  <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
         </div>
-		  <div>
+		    
+        <div>
 	
     	  <% if comment.user_id == current_user.id %>
     	    <div class="comment">
@@ -56,6 +57,7 @@
       	    <%= link_to "Delete", playdate_comment_path(@playdate.id, comment.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %>
     		  </div>
     	  <%end%>
+      <br>
   	  </div>
   	<%end%>
 	</div>
