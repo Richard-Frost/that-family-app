@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :password_resets
   resources :sessions, only: [:new, :create]
+  resources :comments, only: [:edit]
   #get '/auth/twitter/callback' => 'omniauth_callbacks#twitter'
   get '/login' => 'sessions#new'
   get '/menu' => 'sessions#create_menu'

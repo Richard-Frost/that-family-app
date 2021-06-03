@@ -1,6 +1,13 @@
-<%= form_for (@comment) do |f| %>
-	<%= f.label :comment %></br>
-	<%= f.text_field :comment %></br>
-	<%= hidden_field_tag "playdate_id", @playdate.id %>
-	<%= f.submit %>
- <%end%>
+<div class="child">
+  <div class="name">
+    <h3> Edit Comment </h3>
+  </div>
+  <div class="inner-content">
+    <%= form_for [@playdate, @comment] do |f| %>
+	    <%= f.label :comment %>:</br>
+	    <%= f.text_field :comment %></br>
+	    <%= hidden_field_tag "playdate_id", @playdate.id %>
+	    <%= f.submit %>
+    <%end%>
+  </div>
+</div>

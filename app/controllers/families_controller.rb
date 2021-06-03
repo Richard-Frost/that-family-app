@@ -13,7 +13,6 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
     family_email
     @family.save
-    binding.pry
     if @family.errors.any?
        render :new 
     else

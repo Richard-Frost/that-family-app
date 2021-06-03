@@ -11,7 +11,6 @@ class TagsController < ApplicationController
 
     def create
       Tag.create(tag_params)
-      binding.pry
       redirect_to '/home'
     end
 

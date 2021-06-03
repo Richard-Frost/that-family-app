@@ -5,18 +5,18 @@
   <div class="inner-content">
     <% families_near_me.each do |family| %>
       <% #unless family.id == my_family %>
-    <div class="playdates inner-content">
-      <%= link_to family.family_title, family_path(family.id)%>
+      <div class="playdates inner-content">
+        <%= link_to family.family_title, family_path(family.id)%>
 
-      <% family.children.each do |child| %>
-       <small> Child: <%= child.first_name %> Gender: <%= child.gender %> Age: <%= child.child_age %></small>
-       <%end%>
+        <% family.children.each do |child| %>
+          <small> Child: <%= child.first_name %> Gender: <%= child.gender %> Age: <%= child.child_age %></small>
+        <%end%>
       
-      <% family.tags.each do |tag| %>
-       <b> <%= tag.name%> </b>
-       <%end%>
+        <% family.tags.each do |tag| %>
+          <b> <%= tag.name%> </b>
+        <%end%>
       </div>
-      </div>
+    
       <%#end%>
     <%end%>
   </div>
