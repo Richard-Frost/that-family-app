@@ -11,59 +11,50 @@
 
   <body>
 
-      <!---bootstrap navbar -->
+  <!---bootstrap navbar -->
+
   <% if logged_in? %>
-  <nav class="navbar sticky-top navbar-light bg-light">
-  <a class="navbar-brand"%>That Family App</a>
-  <% if logged_in? %>
+    <nav class="navbar sticky-top navbar-light bg-light">
+    <a class="navbar-brand"%>That Family App</a>
   <%end%>
 
-</nav>
- 
   <nav class="sidenav">
-  <div class="side-top">
-  <div class="nb"> <%= image_tag("family.png") %> </div>
-  <div class="small cntr"> <%= current_user.family.family_title %> </div> 
-
-  <div class="">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/home">Home  <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/playdates">Playdate</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/requests">Requests</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/families">Families</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="/families/<%=current_user.family.id%>">My Family</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/settings">Settings</a>
-      </li>
-      <li class="nav-item">
-        <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-          <input type=submit value='Logout' class="btn btn-link" )>
-        <%end%>
-      </li>
-
-      
-    </ul>
-  </div>
-  </div>
-<% end %>
-</nav>
-
+    <div class="side-top">
+      <div class="nb"> <%= image_tag("family.png") %> </div>
+        <div class="small cntr"> <%= current_user.family.family_title %> </div> 
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home  <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/playdates">Playdate</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/requests">Requests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/families">Families</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/families/<%=current_user.family.id%>">My Family</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+              <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+                <input type=submit value='Logout' class="btn btn-link" )>
+              <%end%>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </nav>
 <!-- bootstrap navbar end --> 
-<div class="main">
+
+  <div class="main">
     <%= yield %>
-</div>
-
-
-
+  </div>
   </body>
 </html>

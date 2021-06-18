@@ -5,6 +5,7 @@
 
   <div class ="container-fluid">
     <h4> Details: </h4>
+
     <div class ="container-fluid"> 
 	    <p> When: <%= @playdate.datetime.strftime("%b %e, %l:%M %p")%> </p>
 	    <p> Description: <%= @playdate.description %> </p>
@@ -25,8 +26,6 @@
     	<div class="participants"><p> <%= link_to child.first_name, child_path(child) %> </p></div>
 	  <%end%>
   </div>
-
-
 
 <!-- leave a comment -->
 
@@ -49,7 +48,6 @@
       	  <b><%= comment.user.first_name.capitalize %><%= ": "%></b><%= comment.comment %></br>
         </div>
 		
-	
     	  <% if comment.user_id == current_user.id %>
     	    <div class="comment comment3">
       	    <%= link_to "Edit", edit_playdate_comment_path(@playdate.id, comment.id), class: 'small-left' %>
@@ -60,7 +58,6 @@
   	  
   	<%end%>
 	</div>
-
 
 <!-- play date created by -->
 

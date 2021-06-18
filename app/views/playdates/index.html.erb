@@ -1,13 +1,11 @@
 <div class="child">
   <div class="name">
-<h3>Playdates</h3>
-</div>
-<% @playdates.each do |playdate| %>
-  <p> <%= link_to playdate.playdate_title, playdate_path(playdate) %> </p>
-<%end%> 
-<br>
-<%=link_to "Create new Playdate", new_playdate_path %>
+    <h3>Playdates</h3>
+  </div>
 
-
-
+  <% @playdates.each do |playdate| %>
+    <p> <%= link_to playdate.playdate_title, playdate_path(playdate) %> </p>
+  <%end%> 
+  <br>
+  <%=link_to "Create new Playdate", new_playdate_path %>
 </div>
