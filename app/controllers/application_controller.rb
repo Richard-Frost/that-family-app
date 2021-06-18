@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def my_family
-    #return  current_user.family.id if current_user
-    #return nil if !current_user
     if current_user.family != nil 
       return  current_user.family.id
     else
@@ -34,7 +32,7 @@ class ApplicationController < ActionController::Base
 
   def omni_redirect 
     if current_user.title == nil
-      redirect_to '/omniuser'
+      redirect_to '/omniuser' 
     elsif current_user.family_id == nil
        redirect_to '/omnifamily'
     elsif current_user.family.children.empty?
@@ -48,8 +46,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def resolve_layout
-    if !logged_in? || my_family == nil
+  def resolve_layout 
+    if !logged_in? || my_family == nil || current_user.family.children.empty?
       "welcome"
     else
       "application"

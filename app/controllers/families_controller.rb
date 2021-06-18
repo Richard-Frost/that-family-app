@@ -93,6 +93,3 @@ class FamiliesController < ApplicationController
   end  
  end
 
-
- #current_user.build_family(family_params).save
- #@family = current_user.build_family(family_params)

@@ -3,7 +3,7 @@
 	<div class="login-pic">
 		<%= image_tag('background4.jpg') %>
 	</div>
-
+	<small><%= flash[:error] %></small>
 	<div class="login2"
 		<div class="container=fluid">
 		<%= form_tag ({controller: 'sessions', action: 'create',method: 'post'}) do %>

@@ -10,3 +10,4 @@
   <% current_user.family.children.each do |child| %>   
     <%= link_to "Edit #{child.first_name}'s Profile", edit_child_path(child), class: "btn btn-outline-success"  %></br>
   <%end%>
+  

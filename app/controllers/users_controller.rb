@@ -28,12 +28,11 @@ class UsersController < ApplicationController
 	end
 
 	def update
-	  @user = User.find_by_id(params[:id])
+		@user = User.find_by_id(params[:id])
   	@user.update(user_params)
 	  if @user.omniuser == true
 	  	omni_redirect unless user_complete
 	  end
-	  redirect_to "/home"
 	end
 	
 	private

@@ -1,23 +1,16 @@
 <div class="new-account">
-	<div class="name">
-	<h3> Create a new account </h3>
-</div>
-	<div>
-
-<div class="login"%>
-	<div class="login2">
-		<div class="container-fluid">
-		<%= form_for(@user) do |f| %>
-			<%= f.label :first_name %>
-			<%= f.text_field :first_name, class: "form-control" %>
-			<%= f.label :last_name %>
-			<%= f.text_field :last_name ,class: "form-control" %>
-			<%= f.label :email %>
-			<%= f.text_field :email, class: "form-control" %>
-			<%= f.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle'] %></br>
-			<br>
-			<%= f.submit "Create User Account", class: "btn btn-outline-success" %>
-		<%end%>
-	</div>
-	</div>
+  <h3> Create a new account </h3>
+  <div class="container-fluid">
+	  <%= form_for(@user) do |f| %>
+	  	<%= f.label :first_name %>
+	  	<%= f.text_field :first_name, class: "form-control" %>
+	  	<%= f.label :last_name %>
+	  	<%= f.text_field :last_name ,class: "form-control" %>
+	  	<%= f.label :email %>
+	  	<%= f.text_field :email, class: "form-control" %>
+	  	<%= f.select :title, ['Parent', 'Grandparent', 'Nanny', 'Babysitter', 'Aunt', 'Uncle'] %></br>
+	  	<br>
+	  	<%= f.submit "Create User Account", class: "btn btn-outline-success" %>
+	  <%end%>
+  </div>
 </div>

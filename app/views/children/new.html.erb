@@ -1,32 +1,28 @@
-<div class="new-account">
+<div class="new-child">
   <div class="name">
     <h3> Add a child </h3>
   </div>
-    <div class="login">
-	  <div class="login2">
-	    <div class="container-fluid">
-		  <%= form_for(@child) do |f| %>
-			<%= f.label :first_name %>
-			<%= f.text_field :first_name, class: "form-control" %>
-			<%= f.label :last_name %>
-			<%= f.text_field :last_name ,class: "form-control" %>
-			<%= f.label :gender %>
-			<%= f.text_field :gender, class: "form-control" %>
-			<%= f.label :age%>
-			<br>
-			<%= f.date_select :age, {
-            order: [:month, :day, :year],
-            date_separator: "/",
-            prompt: {
-                month: 'mm',
-                day: 'dd',
-                year: 'yyyy',
-            },
-			:start_year=>2000,:end_year=>2020} %>
-			<br>
-			<br>
-			<%= f.submit "Add Child" %>
-		  <%end%>
-	    </div>
-	</div>
+
+  <%= form_for(@child) do |f| %>
+	  <%= f.label :first_name %>
+	  <%= f.text_field :first_name, class: "form-control" %>
+	  <%= f.label :last_name %>
+	  <%= f.text_field :last_name ,class: "form-control" %>
+	  <%= f.label :gender %>
+	  <%= f.text_field :gender, class: "form-control" %>
+	  <%= f.label :age%>
+	<br>
+	  <%= f.date_select :age, {
+      order: [:month, :day, :year],
+      date_separator: "/",
+      prompt: {
+          month: 'mm',
+          day: 'dd',
+          year: 'yyyy',
+      },
+	  :start_year=>2000,:end_year=>2020} %>
+	  <br>
+	  <br>
+	  <%= f.submit "Add Child" %>
+  <%end%>		  
 </div>

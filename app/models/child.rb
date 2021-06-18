@@ -24,8 +24,3 @@ class Child < ApplicationRecord
 
   
 end
-
-
-#Child belongs_to :family
-#Child has_many :participants
-#Child has_many :playdates, through: :participants
