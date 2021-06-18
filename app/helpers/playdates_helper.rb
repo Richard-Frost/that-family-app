@@ -21,5 +21,10 @@ module PlaydatesHelper
     center_point = [lat, lon]
     box = Geocoder::Calculations.bounding_box(center_point, distance)
     Playdate.within_bounding_box(box)
-  end    
+  end
+
+  def my_playdate
+     @playdate.originator == current_user.id
+  end
+
 end

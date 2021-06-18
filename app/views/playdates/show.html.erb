@@ -20,6 +20,11 @@
 	    <%end%>
 	  <hr/>
 
+	  <% if my_playdate %>
+		<%= link_to "Edit Playdate", edit_playdate_path(@playdate.id), class: 'small-left' %>
+	  <%end%>	
+	 
+
 	  <p> Participants: </p>
 
 	  <% @playdate.children.each do |child| %>
