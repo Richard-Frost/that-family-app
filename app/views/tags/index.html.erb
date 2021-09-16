@@ -2,10 +2,10 @@
   <div class="name">
     <h3><%=@family.family_title %> Tags</h3>
   </div>
-  <%= link_to "Create New Family Tag", new_family_tag_path(@family.id)%></br>
+  <%= link_to "Create or Add a Family Tag", new_family_tag_path(@family.id)%></br>
   <hr>
   <% @tags.each do |tag| %>
-    <b><%= tag.name%></b>
+    <b><%= link_to tag.name, tag_path(tag.id)%></b>
     <div class="comment">
       <%= link_to "Edit", edit_family_tag_path(@family.id, tag.id), class: 'small-left' %>
       <%= link_to "Delete", family_tag_path(@family.id, tag.id), class: 'small-left'  , method: :delete, data: { confirm: "Really?" } %> 
@@ -13,3 +13,6 @@
   <%end%>
 </div>
 
+<% Tag.all.each do |tag|%>
+<b><%= tag.name%></b>
+<%end%>

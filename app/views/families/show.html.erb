@@ -24,7 +24,7 @@
     <h4> Family Interests </h4>
     <div class="dateinfo">
       <% @family.tags.each do |tag| %>
-        <%= tag.name %> 
+        <%= link_to tag.name, tag_path(tag.id) %> 
       <%end%>
     </div>
   </div>

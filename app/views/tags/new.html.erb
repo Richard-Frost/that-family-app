@@ -4,8 +4,11 @@
   </div>
 
   <div class="container-fluid">
+
+
     <%= form_for [@family, @tag] do |f| %>
-      <%= f.label :tag_name %></br>
+     
+      <%= f.label :tag_name%></br>
       <%= f.text_field :name, class: 'form-control' %></br>
       <%= f.fields_for :family_tags, @familytag do |fam| %>
         <%= fam.hidden_field :family_id, value: @family.id %>

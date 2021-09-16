@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
   def create 
   	user = User.find_by(email: params[:user][:email])
   	user = user.try(:authenticate, params[:user][:password])
+
+    
     if !user
       flash[:error] = "Sorry, Username or Password is incorrect!"
       redirect_to '/login'

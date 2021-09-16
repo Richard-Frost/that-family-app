@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :password_resets
   resources :sessions, only: [:new, :create]
   resources :comments, only: [:edit]
+  resources :tags
   #get '/auth/twitter/callback' => 'omniauth_callbacks#twitter'
   get '/login' => 'sessions#new'
   get '/menu' => 'sessions#create_menu'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get '/omnifamily'=> 'omniauth_callbacks#omnifamily'
   
   get '/settings' => 'families#settings'
-
+  get '/children/all_clildren' => 'children#all_children'
   resources :playdates do
   resources :comments
   end

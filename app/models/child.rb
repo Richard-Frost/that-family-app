@@ -1,6 +1,7 @@
 class Child < ApplicationRecord
 	
 	scope :i_am_bored, -> { where(bored: true) }
+  scope :first_names, -> {order(first_name: :asc)}
 
 	belongs_to :family
 	has_many :participants  
@@ -21,6 +22,5 @@ class Child < ApplicationRecord
   def child_age 
     (Time.zone.now - self.age.to_time).div(1.year.seconds)
   end
-
   
 end

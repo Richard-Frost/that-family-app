@@ -7,8 +7,9 @@ class ChildrenController < ApplicationController
   end
 
   def index
-    @children = Child.all
+    @ordered_children = Child.all
   end
+
 
   def create
     @child = Child.new(child_params)
@@ -48,5 +49,3 @@ class ChildrenController < ApplicationController
   end
 
 end
-
-	
