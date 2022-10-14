@@ -11,7 +11,7 @@
         <% family.children.each do |child| %>
           <small> Child: <%= child.first_name %> Gender: <%= child.gender %> Age: <%= child.child_age %></small>
         <%end%>
-      
+        <b>Interests:</b>
         <% family.tags.each do |tag| %>
           <b> <%= tag.name%> </b>
         <%end%>

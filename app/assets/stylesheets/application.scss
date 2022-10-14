@@ -78,13 +78,11 @@
      max-width: 600px;
      min-width: 600px;
      overflow-x: hidden;
-     border-radius: 10px;
  }
  
  .login2 {
-   background-color: rgba(52, 209, 0, .9) !important;
-   padding: .5%;
-   border-radius: 10px;    
+   background-color: #00b300 !important;
+   padding: .5%;  
  }
  
  .login2 p {
@@ -402,7 +400,39 @@
  .field_with_errors label {
    color: red;
  }
+
+ .requests button {
+  background-color: rgba(52, 209, 0, .9);
+  color: white;
+  border-color: rgba(52, 209, 0, .9);
+ }
+ .requests a {
+  color: green;
+ }
+
+ .dateinfo a {
+  color: rgb(21, 118, 45);
+ }
  
+ .edit_child {
+  margin-left: 10px;
+ }
+ .update_status {
+  margin-left: 11px;
+ }
+ #playdate a {
+  color: green;
+ }
+ #play_status > form > input[type=submit]:nth-child(11) {
+  color: white;
+  background-color:rgba(52, 209, 0, .9);
+  border: none;
+ }
+ #new_comment > input[type=submit]:nth-child(7){
+  color: white;
+  background-color:rgba(52, 209, 0, .9);
+  border: none;
+ }
  @media (min-width: 992px) { 
  
  .container {

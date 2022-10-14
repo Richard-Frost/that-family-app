@@ -11,13 +11,15 @@
 	    <p> Description: <%= @playdate.description %> </p>
 
 	    <% unless everyone_attending? %>
+		<div id="play_status">
 	      <%= form_for :playdate, :url => url_for(:controller => 'playdates', :action => 'join') do |f| %>
 		      <%= f.hidden_field :playdate_id, value: @playdate.id %>
 		      <%= f.label :child_ids, "Select a Child:  " %>
 		      <%= f.collection_check_boxes :child_ids, @family.children, :id, :first_name  %></br>
-		      <%= f.submit %>
+		      <%= f.submit "Set Participant Status" %>
 		    <%end%>
 	    <%end%>
+		</div>
 	  <hr/>
 
 	  <% if my_playdate %>

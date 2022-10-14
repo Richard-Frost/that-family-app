@@ -22,16 +22,17 @@
     </div>
 
     <br>
-    <div class"set-status">
+    <div class="set-status">
       <%= form_for(child) do |f| %>
-        <%= f.label :status, "Update Status" %></br>
+        <%= f.label :status, "Update Status" %>
+        <br>
         <%=f.text_area :status %>
         <%= f.submit %>
       <%end%>
     </div>  
   </div>
 
-  <div class="pink">
+  <div class="pink update_status" >
     <h6 class="blue"> Update status: Is <%= child.first_name.capitalize %> bored today? </h6>
   </div>
 
@@ -54,7 +55,7 @@
       <h3> Kids that are Bored! </h3>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="kids">
       <% Child.i_am_bored.each do |child| %>
       <%= link_to child.first_name, child_path(child.id) %></br>
     <%end%>
